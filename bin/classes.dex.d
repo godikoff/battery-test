@@ -1,0 +1,19 @@
+C:\appium\battery-test\bin\classes.dex : \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Background.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\ColdStart.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Foreground.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\OpenTenSites.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Scroll.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\TenSitesBackground.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\UrlOpen.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\VideoPlay.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\steps\ChromeSteps.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\steps\YaBroSteps.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Background.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\ColdStart.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Foreground.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\OpenTenSites.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Scroll.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\TenSitesBackground.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\UrlOpen.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\VideoPlay.class \

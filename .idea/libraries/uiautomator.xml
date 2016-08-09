@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="uiautomator">
+    <CLASSES>
+      <root url="jar://C:/Android/android-sdk/platforms/android-23/uiautomator.jar!/" />
+      <root url="jar://C:/Android/android-sdk/platforms/android-23/android.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
