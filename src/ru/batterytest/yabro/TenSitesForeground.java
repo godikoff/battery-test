@@ -1,10 +1,10 @@
-package ru.batterytest.chrome;
+package ru.batterytest.yabro;
 
 
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import ru.batterytest.steps.ChromeSteps;
+import ru.batterytest.steps.YaBroSteps;
 
-public class OpenTenSites extends UiAutomatorTestCase {
+public class TenSitesForeground extends UiAutomatorTestCase {
     String[] siteList = {
             "www.cat.com",
             "www.microsoft.com",
@@ -17,7 +17,7 @@ public class OpenTenSites extends UiAutomatorTestCase {
             "www.bash.im"};
 
     public void test() throws Exception {
-        ChromeSteps step = new ChromeSteps();
+        YaBroSteps step = new YaBroSteps();
         step.browserStart(3000);
         step.omniboxTap();
         step.omniboxInput("www.worldoftanks.ru");
@@ -36,3 +36,4 @@ public class OpenTenSites extends UiAutomatorTestCase {
         step.logStart();
     }
 }
+

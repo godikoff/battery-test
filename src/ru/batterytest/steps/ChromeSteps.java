@@ -45,6 +45,12 @@ public class ChromeSteps extends UiAutomatorTestCase {
         omnibox.click();
     }
 
+    //omnibox in tab tap
+    public void omniboxInTabTap() throws UiObjectNotFoundException {
+        UiObject omnibox = new UiObject(new UiSelector().resourceId("com.android.chrome:id/url_bar"));
+        omnibox.click();
+    }
+
     //omnibox text input
     public void omniboxInput(String url) throws UiObjectNotFoundException {
         UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.android.chrome:id/url_bar"));

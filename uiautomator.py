@@ -46,8 +46,8 @@ class UlrOpen:
     runs = 10
     clearBrowser = ""
 
-class OpenTenSites:
-    testClass = "OpenTenSites"
+class TenSitesForeground:
+    testClass = "TenSitesForeground"
     measurementDuration = 500
     runs = 1
     clearBrowser = ""
@@ -70,8 +70,21 @@ class Scroll:
     runs = 1
     clearBrowser = ""
 
+class MusicPlay:
+    testClass = "MusicPlay"
+    measurementDuration = 550
+    runs = 1
+    clearBrowser = ""
+
+class HundredSitesForeground:
+    testClass = "HundredSitesForeground"
+    measurementDuration = 500
+    runs = 1
+    clearBrowser = ""
+
+
 broList = [YandexBrowser, Chrome, Opera]
-testList = [ColdStart, Foreground, Background, UlrOpen, OpenTenSites, TenSitesBackground, VideoPlay, Scroll]
+testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenSitesBackground, VideoPlay, Scroll, MusicPlay, HundredSitesForeground]
 
 
 bNumber = 1

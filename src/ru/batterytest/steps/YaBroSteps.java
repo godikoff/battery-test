@@ -37,6 +37,12 @@ public class YaBroSteps extends UiAutomatorTestCase {
         omnibox.click();
     }
 
+    //omnibox in tab tap
+    public void omniboxInTabTap() throws UiObjectNotFoundException {
+        UiObject omnibox = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_omnibar_address_title_text"));
+        omnibox.click();
+    }
+
     //omnibox text input
     public void omniboxInput(String url) throws UiObjectNotFoundException {
         UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_sentry_bar_input_edittext"));

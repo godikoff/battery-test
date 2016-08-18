@@ -7,11 +7,11 @@ import ru.batterytest.steps.OperaSteps;
 public class Scroll extends UiAutomatorTestCase {
     public void test() throws Exception {
         OperaSteps step = new OperaSteps();
-        //step.browserStart(30000);
-        //step.omniboxTap();
-        //step.omniboxInput("www.bash.im");
-        //getUiDevice().pressEnter();
-        //sleep(30000);
+        step.browserStart(30000);
+        step.omniboxTap();
+        step.omniboxInput("www.bash.im");
+        getUiDevice().pressEnter();
+        sleep(30000);
         step.scrollDown(5);
         sleep(5000);
         step.logStart();

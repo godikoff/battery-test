@@ -4,7 +4,7 @@ package ru.batterytest.opera;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import ru.batterytest.steps.OperaSteps;
 
-public class OpenTenSites extends UiAutomatorTestCase {
+public class TenSitesForeground extends UiAutomatorTestCase {
     String[] siteList = {
             "www.cat.com",
             "www.microsoft.com",
