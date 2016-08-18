@@ -19,6 +19,11 @@ class Chrome:
     browserName = "Chrome"
     testBrowser = "chrome"
 
+class Opera:
+    package = "com.opera.browser"
+    browserName = "Opera"
+    testBrowser = "opera"
+
 class ColdStart:
     testClass = "ColdStart"
     measurementDuration = 30
@@ -65,7 +70,7 @@ class Scroll:
     runs = 1
     clearBrowser = ""
 
-broList = [YandexBrowser, Chrome]
+broList = [YandexBrowser, Chrome, Opera]
 testList = [ColdStart, Foreground, Background, UlrOpen, OpenTenSites, TenSitesBackground, VideoPlay, Scroll]
 
 
