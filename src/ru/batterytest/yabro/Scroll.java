@@ -7,10 +7,12 @@ import ru.batterytest.steps.YaBroSteps;
 public class Scroll extends UiAutomatorTestCase {
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
-        step.browserStart(3000);
-        step.openUrlInCurrentTab("www.bash.im");
+        step.browserStart(30000);
+        step.omniboxTap();
+        step.omniboxInput("www.bash.im");
+        getUiDevice().pressEnter();
         sleep(30000);
-        step.scrollDown(2);
+        step.scrollDown(5);
         sleep(5000);
         step.logStart();
         for (int i = 0; i < 20; i++) {

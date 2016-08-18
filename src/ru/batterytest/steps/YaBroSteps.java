@@ -10,7 +10,7 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 public class YaBroSteps extends UiAutomatorTestCase {
 
     //menu in omni tap
-    public void menuTap() throws UiObjectNotFoundException {
+    public void menuButtonTap() throws UiObjectNotFoundException {
         UiObject menuButton = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_omnibar_address_button_menu"));
         menuButton.click();
     }
@@ -44,15 +44,15 @@ public class YaBroSteps extends UiAutomatorTestCase {
     }
 
     //tap on "+" button
-    public void menuNewTab() throws UiObjectNotFoundException {
+    public void menuNewTabButtonTap() throws UiObjectNotFoundException {
         UiObject menuNewTab = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_menu_item_new_tab"));
         menuNewTab.click();
     }
 
     //open url in new tab
     public void openUrlInNewTab(String url) throws UiObjectNotFoundException {
-        menuTap();
-        menuNewTab();
+        menuButtonTap();
+        menuNewTabButtonTap();
         omniboxTap();
         omniboxInput(url);
         getUiDevice().pressEnter();
@@ -75,8 +75,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
         int screenHeight = UiDevice.getInstance().getDisplayHeight();
         int screenWidth = UiDevice.getInstance().getDisplayWidth();
         for (int x = 0; x < count; x++) {
-            UiDevice.getInstance().swipe(screenWidth / 2, screenHeight - (screenHeight / 7), screenWidth / 2, screenHeight - (screenHeight - (screenHeight / 7)), 20);
-            sleep(1000);
+            UiDevice.getInstance().drag(screenWidth / 2, screenHeight - (screenHeight / 7), screenWidth / 2, screenHeight - (screenHeight - (screenHeight / 7)), 20);
         }
     }
 
@@ -84,8 +83,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
         int screenHeight = UiDevice.getInstance().getDisplayHeight();
         int screenWidth = UiDevice.getInstance().getDisplayWidth();
         for (int x = 0; x < count; x++) {
-            UiDevice.getInstance().swipe(screenWidth / 2, screenHeight - (screenHeight - (screenHeight / 7)), screenWidth / 2, screenHeight - (screenHeight / 7), 20);
-            sleep(1000);
+            UiDevice.getInstance().drag(screenWidth / 2, screenHeight - (screenHeight - (screenHeight / 7)), screenWidth / 2, screenHeight - (screenHeight / 7), 20);
         }
     }
 
