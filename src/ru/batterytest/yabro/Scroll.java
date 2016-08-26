@@ -8,9 +8,7 @@ public class Scroll extends UiAutomatorTestCase {
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
         step.browserStart(30000);
-        step.omniboxTap();
-        step.omniboxInput("www.bash.im");
-        getUiDevice().pressEnter();
+        step.openUrlFromSentry("www.bash.im");
         sleep(30000);
         step.scrollDown(5);
         sleep(5000);
@@ -19,5 +17,6 @@ public class Scroll extends UiAutomatorTestCase {
             step.scrollDown(10);
             step.scrollUp(10);
         }
+        step.logPass();
     }
 }

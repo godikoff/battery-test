@@ -10,5 +10,6 @@ public class Foreground extends UiAutomatorTestCase {
         step.browserStart(3000);
         sleep(30000);
         step.logStart();
+        step.logPass();
     }
 }

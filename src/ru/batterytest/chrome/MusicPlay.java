@@ -9,27 +9,14 @@ public class MusicPlay extends UiAutomatorTestCase {
     public void test() throws Exception {
         ChromeSteps step = new ChromeSteps();
         step.browserStart(60000);
-        step.omniboxTap();
-        step.omniboxInput("https://m.vk.com");
-        getUiDevice().pressEnter();
+        step.openUrlInCurrentTab("https://m.vk.com");
         sleep(10000);
-
-        UiObject loginView = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
-        UiObject passwordView = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
-
-        loginView.getChild(new UiSelector().className("android.widget.EditText")).setText("yabrotest@gmail.com");
-        passwordView.getChild(new UiSelector().className("android.widget.EditText")).setText("yabrotest123");
-        getUiDevice().pressEnter();
+        step.vkLogin();
         sleep(10000);
-
-        step.omniboxInTabTap();
-        step.omniboxInput("https://m.vk.com/audio");
-        getUiDevice().pressEnter();
+        step.openUrlInCurrentTab("https://m.vk.com/audio");
         sleep(20000);
-
-        UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
-
+        step.vkMusicStart();
         step.logStart();
-        webView.getChild(new UiSelector().description("Scorpions – Humanity")).click();
+        step.logPass();
     }
 }

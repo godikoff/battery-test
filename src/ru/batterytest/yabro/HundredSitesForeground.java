@@ -32,7 +32,9 @@ public class HundredSitesForeground extends UiAutomatorTestCase {
             openTab();
         }
         sleep(40000);
+        step.waitForWebView();
         step.logStart();
+        step.logPass();
     }
 }
 

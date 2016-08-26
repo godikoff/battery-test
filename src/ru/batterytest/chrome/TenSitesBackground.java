@@ -1,6 +1,7 @@
 package ru.batterytest.chrome;
 
 
+import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import ru.batterytest.steps.ChromeSteps;
 
@@ -19,22 +20,17 @@ public class TenSitesBackground extends UiAutomatorTestCase {
     public void test() throws Exception {
         ChromeSteps step = new ChromeSteps();
         step.browserStart(3000);
-        step.omniboxTap();
-        step.omniboxInput("www.worldoftanks.ru");
-        getUiDevice().pressEnter();
+        step.openUrlInCurrentTab("www.worldoftanks.ru");
         sleep(10000);
 
         for (int i=0; i<9; i++){
-            step.menuButtonTap();
-            step.menuNewTabButtonTap();
-            step.omniboxTap();
-            step.omniboxInput(siteList[i]);
-            getUiDevice().pressEnter();
+            step.openUrlInNewTab(siteList[i]);
             sleep(10000);
         }
         sleep(20000);
-        getUiDevice().pressHome();
+        UiDevice.getInstance().pressHome();
         sleep(10000);
         step.logStart();
+        step.logPass();
     }
 }

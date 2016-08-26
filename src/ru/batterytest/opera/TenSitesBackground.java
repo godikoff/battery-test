@@ -1,6 +1,7 @@
 package ru.batterytest.opera;
 
 
+import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import ru.batterytest.steps.OperaSteps;
 
@@ -19,22 +20,19 @@ public class TenSitesBackground extends UiAutomatorTestCase {
     public void test() throws Exception {
         OperaSteps step = new OperaSteps();
         step.browserStart(3000);
-        step.omniboxTap();
-        step.omniboxInput("www.worldoftanks.ru");
-        getUiDevice().pressEnter();
+        step.openUrlInCurrentTab("www.worldoftanks.ru");
         sleep(10000);
+        step.dialogButtonNegativeClick();
 
-        for (int i=0; i<9; i++){
-            step.carouselButtonTap();
-            step.carouselNewTabButtonTap();
-            step.omniboxTap();
-            step.omniboxInput(siteList[i]);
-            getUiDevice().pressEnter();
+        for (int i= 0; i < 9; i++) {
+            step.openUrlInNewTab(siteList[i]);
             sleep(10000);
+            step.dialogButtonNegativeClick();
         }
         sleep(20000);
-        getUiDevice().pressHome();
+        UiDevice.getInstance().pressHome();
         sleep(10000);
         step.logStart();
+        step.logPass();
     }
 }

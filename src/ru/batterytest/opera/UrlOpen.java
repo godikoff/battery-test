@@ -1,6 +1,7 @@
 package ru.batterytest.opera;
 
 
+import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import ru.batterytest.steps.OperaSteps;
 
@@ -12,6 +13,8 @@ public class UrlOpen extends UiAutomatorTestCase {
         step.omniboxInput("www.bash.im");
         sleep(10000);
         step.logStart();
-        getUiDevice().pressEnter();
+        UiDevice.getInstance().pressEnter();
+        step.waitForWebView();
+        step.logPass();
     }
 }

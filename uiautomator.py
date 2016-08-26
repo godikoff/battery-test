@@ -1,4 +1,6 @@
 import os, csv, sys, time, shutil, subprocess, threading, Queue, datetime
+from time import gmtime, strftime
+
 
 #Don't forget to:
 #1. Create new <test class> and in case of new testclesses in .jar. And add it to <testList>
@@ -91,7 +93,7 @@ bNumber = 1
 for browserToChoose in broList:
     print str(bNumber) + ". " + browserToChoose.browserName
     bNumber = bNumber + 1
-browserType = input("Choose browser (" + str(bNumber) + " for all): ")
+browserType = input("Choose browser (0 for all): ")
 
 print ""
 
@@ -99,14 +101,14 @@ tNumber = 1
 for testToChoose in testList:
     print str(tNumber) + ". " + testToChoose.testClass
     tNumber = tNumber + 1
-testType = input("Choose test (" + str(tNumber) + " for all): ")
+testType = input("Choose test (0 for all): ")
 
-if browserType == len(broList)+1:
+if browserType == 0:
     bro = broList
 else:
     bro.append(broList[browserType-1])
 
-if testType == len(testList)+1:
+if testType == 0:
     test = testList
 else:
     test.append(testList[testType-1])
@@ -124,9 +126,9 @@ os.system("adb push bin/battery-test.jar /data/local/tmp/")
 
 def RunMonitor(measurementDuration):
     os.chdir("C:/Program Files (x86)/Monsoon Solutions Inc/Power Monitor")
-    print "start measurement at " + str(datetime.datetime.now())
+    print "start measurement at " + strftime("%m-%d %H:%M:%S")
     os.system("PowerToolCmd.exe -trigger=ETY100D" + measurementDuration + "A -vout=" + voltage + " -USB=auto -keeppower -savefile=battery_test.pt4 -noexitwait")
-    print "stop measurement at " + str(datetime.datetime.now())
+    print "stop measurement at " + strftime("%m-%d %H:%M:%S")
 
 
 def LogReader(measurementDuration):
@@ -149,7 +151,7 @@ def LogReader(measurementDuration):
         def stop(self):
             self._stop.set()
 
-    process = subprocess.Popen(["adb", "logcat"], stdout=subprocess.PIPE)
+    process = subprocess.Popen(["adb", "logcat", "-v", "time"], stdout=subprocess.PIPE)
 
     stdout_queue = Queue.Queue()
     stdout_reader = AsynchronousFileReader(process.stdout, stdout_queue)
@@ -161,6 +163,39 @@ def LogReader(measurementDuration):
             if "start measurement" in line:
                 RunMonitor(measurementDuration)
 
+def LogFailFinder():
+    class AsynchronousFileReader(threading.Thread):
+
+        def __init__(self, fd, queue):
+            assert isinstance(queue, Queue.Queue)
+            assert callable(fd.readline)
+            threading.Thread.__init__(self)
+            self._fd = fd
+            self._queue = queue
+
+        def run(self):
+            for line in iter(self._fd.readline, ''):
+                self._queue.put(line)
+
+        def eof(self):
+            return not self.is_alive() and self._queue.empty()
+
+        def stop(self):
+            self._stop.set()
+
+    process = subprocess.Popen(["adb", "logcat", "-v", "time"], stdout=subprocess.PIPE)
+
+    stdout_queue = Queue.Queue()
+    stdout_reader = AsynchronousFileReader(process.stdout, stdout_queue)
+    stdout_reader.start()
+
+    while not stdout_reader.eof():
+        while not stdout_queue.empty():
+            line = stdout_queue.get()
+            if "battery test failed" in line:
+                return line
+            elif "battery test passed" in line:
+                return "passed"
 
 def RunTests(broList, browser, test):
     for browserToRun in browser:
@@ -176,7 +211,7 @@ def RunTests(broList, browser, test):
 
             if hasattr(testToRun, 'notFirstStart'):
                 print "First start..."
-                os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.yandex.batterytest." + browserToRun.testBrowser + ".ColdStart")
+                os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + ".ColdStart")
                 print "...please wait..."
                 time.sleep(80)
 
@@ -184,6 +219,7 @@ def RunTests(broList, browser, test):
                 os.system("adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:1")
                 print "Screen rotation enabled!"
 
+            retryCount = 0
             while testNumber<testToRun.runs+1:
 
                 os.system("adb shell am force-stop " + browserToRun.package)
@@ -196,34 +232,53 @@ def RunTests(broList, browser, test):
                 os.system("adb kill-server")
                 os.system("adb devices")
                 os.system("adb logcat -c")
-                os.system("start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.yandex.batterytest." + browserToRun.testBrowser + "." + testToRun.testClass + " --nohup")
+                os.system("start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + "." + testToRun.testClass + " --nohup")
                 LogReader(str(testToRun.measurementDuration))
 
-                with open('battery_test.csv') as csvfile:
-                    testResults = csv.DictReader(csvfile)
-                    currentList = []
+                findFailInLog = LogFailFinder()
+                if findFailInLog == "passed":
+                    with open('battery_test.csv') as csvfile:
+                        testResults = csv.DictReader(csvfile)
+                        currentList = []
 
-                    for row in testResults:
-                        current = row['Main Avg Power (mW)']
-                        currentList.append(current)
+                        for row in testResults:
+                            current = row['Main Avg Power (mW)']
+                            currentList.append(current)
 
-                    currentList = map(int, currentList)
-                    print "\n" + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": " + str(sum(currentList)/len(currentList)) + "\n"
-                    singleResult = open('battery_test_result.txt', 'a')
-                    singleResult.write(browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": " + str(sum(currentList)/len(currentList)) + "\n")
-                    singleResult.close()
+                        currentList = map(int, currentList)
+                        print "\n" + strftime("%m-%d %H:%M:%S") + " " +  browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": " + str(sum(currentList)/len(currentList)) + "\n"
+                        singleResult = open('battery_test_result.txt', 'a')
+                        singleResult.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": " + str(sum(currentList)/len(currentList)) + "\n")
+                        singleResult.close()
 
-                testNumber=testNumber+1
-                allTestsCurrentAvg.append(sum(currentList)/len(currentList))
+                    testNumber=testNumber+1
+                    allTestsCurrentAvg.append(sum(currentList)/len(currentList))
+                else:
+                    retryCount = retryCount+1
+                    with open('battery_test_result.txt', 'a') as failResult:
+                        print strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip() + "\n"
+                        failResult.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip() + "\n")
+                        failResult.close()
+                    if retryCount == 2:
+                        testNumber=testNumber+1
+                        retryCount = 0
+                        continue
+
                 time.sleep(5)
+
+            if (testToRun.runs > 9 and testNumber > 5):
+                allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
+                allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
+                allTestsCurrentAvg.remove(min(allTestsCurrentAvg))
+                allTestsCurrentAvg.remove(min(allTestsCurrentAvg))
 
             if hasattr(testToRun, 'enableRotation'):
                 os.system("adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:0")
                 print "Screen rotation disabled!"
 
             result = open('battery_test_result.txt', 'a')
-            result.write(browserToRun.browserName + " " + testToRun.testClass+ " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg)) + "\n")
-            print browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg))
+            result.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg)) + "\n")
+            print strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg))
             time.sleep(5)
             result.close()
 

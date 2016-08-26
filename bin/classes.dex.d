@@ -2,15 +2,18 @@ C:\appium\battery-test\bin\classes.dex : \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Foreground.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\chrome\HundredSitesForeground.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\MusicPlay.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Scroll.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\TenSitesBackground.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\TenSitesForeground.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\UrlOpen.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\VideoPlay.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\Control.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\Foreground.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\opera\HundredSitesForeground.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\MusicPlay.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\Scroll.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\TenSitesBackground.class \
@@ -20,7 +23,7 @@ C:\appium\battery-test\bin\classes\ru\batterytest\opera\VideoPlay.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\ChromeSteps.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\OperaSteps.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\YaBroSteps.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\yabro\aHundredSitesForeground.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\yabro\atest.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Foreground.class \

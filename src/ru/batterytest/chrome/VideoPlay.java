@@ -12,25 +12,11 @@ public class VideoPlay extends UiAutomatorTestCase {
     public void test() throws Exception {
         ChromeSteps step = new ChromeSteps();
         step.browserStart(60000);
-        step.omniboxTap();
-        step.omniboxInput("http://www.youtube.com/watch?v=ZtaKWt26dNs");
-        getUiDevice().pressEnter();
+        step.openUrlInCurrentTab("http://www.youtube.com/watch?v=ZtaKWt26dNs");
         sleep(10000);
-
-        UiObject playButton = new UiObject(new UiSelector().className("android.widget.Button").description("Смотреть"));
-        playButton.click();
-        sleep(2000);
-
-        UiObject videoContainer = new UiObject(new UiSelector().resourceId("koya_elem_0_11"));
-        UiDevice.getInstance().click((int)((videoContainer.getBounds().right)*(90.0f/100.0f)), (int)((videoContainer.getBounds().bottom)*(90.0f/100.0f)));
-
-        getUiDevice().setOrientationLeft();
-        sleep(2000);
-
-        UiObject notificationCloseButton = new UiObject(new UiSelector().resourceId("com.android.chrome:id/infobar_close_button"));
-        if (notificationCloseButton.exists())
-            notificationCloseButton.click();
+        step.youtubeVideoPlayFullscreen();
         sleep(10000);
         step.logStart();
+        step.logPass();
     }
 }
