@@ -1,12 +1,7 @@
 package ru.batterytest.chrome;
 
-import com.android.uiautomator.core.UiDevice;
-import com.android.uiautomator.core.UiObject;
-import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import ru.batterytest.steps.ChromeSteps;
-
-import java.io.File;
 
 public class VideoPlay extends UiAutomatorTestCase {
     public void test() throws Exception {

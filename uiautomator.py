@@ -1,6 +1,6 @@
 import os, csv, sys, time, shutil, subprocess, threading, Queue, datetime
 from time import gmtime, strftime
-
+from openpyxl import Workbook
 
 #Don't forget to:
 #1. Create new <test class> and in case of new testclesses in .jar. And add it to <testList>
@@ -10,6 +10,9 @@ voltage = "4.2"
 
 bro = []
 test = []
+
+wb = Workbook()
+ws = wb.active
 
 class YandexBrowser:
     package = "com.yandex.browser"
@@ -194,8 +197,10 @@ def LogFailFinder():
             line = stdout_queue.get()
             if "battery test failed" in line:
                 return line
+                os._exit(0)
             elif "battery test passed" in line:
                 return "passed"
+                os._exit(0)
 
 def RunTests(broList, browser, test):
     for browserToRun in browser:
@@ -229,40 +234,59 @@ def RunTests(broList, browser, test):
                     print browserToRun.browserName + " clearing..."
                     os.system("adb shell pm clear " + browserToRun.package)
 
-                os.system("adb kill-server")
+                #os.system("adb kill-server")
                 os.system("adb devices")
                 os.system("adb logcat -c")
                 os.system("start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + "." + testToRun.testClass + " --nohup")
                 LogReader(str(testToRun.measurementDuration))
-
+                time.sleep(3)
                 findFailInLog = LogFailFinder()
                 if findFailInLog == "passed":
-                    with open('battery_test.csv') as csvfile:
-                        testResults = csv.DictReader(csvfile)
-                        currentList = []
+                    try:
+                        with open('battery_test.csv') as csvfile:
+                            testResults = csv.DictReader(csvfile)
+                            currentList = []
 
-                        for row in testResults:
-                            current = row['Main Avg Power (mW)']
-                            currentList.append(current)
+                            for row in testResults:
+                                current = row['Main Avg Power (mW)']
+                                currentList.append(current)
 
-                        currentList = map(int, currentList)
-                        print "\n" + strftime("%m-%d %H:%M:%S") + " " +  browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": " + str(sum(currentList)/len(currentList)) + "\n"
-                        singleResult = open('battery_test_result.txt', 'a')
-                        singleResult.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": " + str(sum(currentList)/len(currentList)) + "\n")
-                        singleResult.close()
+                            currentList = map(int, currentList)
+                            try:
+                                print "\n" + strftime("%m-%d %H:%M:%S") + " " +  browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": " + str(sum(currentList)/len(currentList)) + "\n"
+                            except:
+                                print "single result printing error"
+
+                            try:
+                                singleResult = open('battery_test_result.txt', 'a')
+                                singleResult.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": " + str(sum(currentList)/len(currentList)) + "\n")
+                                singleResult.close()
+                            except:
+                                print "single result writing in file error"
+                    except:
+                        print "battery_test.csv reading error\n"
 
                     testNumber=testNumber+1
                     allTestsCurrentAvg.append(sum(currentList)/len(currentList))
                 else:
                     retryCount = retryCount+1
-                    with open('battery_test_result.txt', 'a') as failResult:
-                        print strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip() + "\n"
-                        failResult.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip() + "\n")
-                        failResult.close()
-                    if retryCount == 2:
-                        testNumber=testNumber+1
-                        retryCount = 0
-                        continue
+                    try:
+                        with open('battery_test_result.txt', 'a') as failResult:
+                            try:
+                                print strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip() + "\n"
+                            except:
+                                print "fail result printing error\n"
+                            try:
+                                failResult.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip() + "\n")
+                                failResult.close()
+                            except:
+                                print "fail result writing in file error\n"
+                        if retryCount == 2:
+                            testNumber=testNumber+1
+                            retryCount = 0
+                            continue
+                    except:
+                        print "battery_test_result.txt reading error\n"
 
                 time.sleep(5)
 
@@ -276,10 +300,21 @@ def RunTests(broList, browser, test):
                 os.system("adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:0")
                 print "Screen rotation disabled!"
 
-            result = open('battery_test_result.txt', 'a')
-            result.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg)) + "\n")
-            print strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg))
+            try:
+                result = open('battery_test_result.txt', 'a')
+                try:
+                    result.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg)) + "\n")
+                except:
+                    print "full test result writing error\n"
+                try:
+                    print strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg))
+                except:
+                    print "full test result printing error\n"
+                result.close()
+            except:
+                print "battery_test_result.txt reading error\n"
             time.sleep(5)
-            result.close()
 
 RunTests(broList, bro, test)
+
+os._exit(0)

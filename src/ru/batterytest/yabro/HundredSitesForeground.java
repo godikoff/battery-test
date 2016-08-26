@@ -27,7 +27,7 @@ public class HundredSitesForeground extends UiAutomatorTestCase {
 
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
-        step.browserStart(60000);
+        step.browserStart(6000);
         for (int i=0;i<100;i++) {
             openTab();
         }

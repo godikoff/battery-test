@@ -39,16 +39,22 @@ public class OperaSteps extends UiAutomatorTestCase {
     //carousel tap
     public void carouselButtonTap() throws UiObjectNotFoundException {
         UiObject carouselButton = new UiObject(new UiSelector().resourceId("com.opera.browser:id/bottom_navigation_bar_tab_count_button"));
-        if (!carouselButton.exists()) {
+        if (carouselButton.exists()) {
             carouselButton.click();
+        }
+        else{
+            logFail(carouselButton);
         }
     }
 
     //tap on "new tab" button in carousel
     public void carouselNewTabButtonTap() throws UiObjectNotFoundException {
         UiObject carouselNewTabButton = new UiObject(new UiSelector().resourceId("com.opera.browser:id/tab_menu_add_tab"));
-        if (!carouselNewTabButton.exists()) {
+        if (carouselNewTabButton.exists()) {
             carouselNewTabButton.click();
+        }
+        else{
+            logFail(carouselNewTabButton);
         }
     }
 
@@ -65,16 +71,22 @@ public class OperaSteps extends UiAutomatorTestCase {
     //omnibox tap
     public void omniboxTap() throws UiObjectNotFoundException {
         UiObject omnibox = new UiObject(new UiSelector().resourceId("com.opera.browser:id/url_field"));
-        if (!omnibox.exists()) {
+        if (omnibox.exists()) {
             omnibox.click();
+        }
+        else{
+            logFail(omnibox);
         }
     }
 
     //omnibox text input
     public void omniboxInput(String url) throws UiObjectNotFoundException {
         UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.opera.browser:id/url_field"));
-        if (!omniboxTextField.exists()) {
+        if (omniboxTextField.exists()) {
             omniboxTextField.setText(url);
+        }
+        else{
+            logFail(omniboxTextField);
         }
     }
 
@@ -133,12 +145,12 @@ public class OperaSteps extends UiAutomatorTestCase {
 
     public void vkMusicStart() throws Exception{
         UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
-        webView.getChild(new UiSelector().description("Scorpions ñ Humanity")).click();
+        webView.getChild(new UiSelector().description("Scorpions ‚Äì Humanity")).click();
         waitForWebView();
     }
 
     public void youtubeVideoPlayFullscreen() throws Exception{
-        UiObject playButton = new UiObject(new UiSelector().className("android.widget.Button").description("œÓÒÏÓÚÂÚ¸ ? Space Exploration - \"Our Universe\" (Episode 01) [2016 Documentary]"));
+        UiObject playButton = new UiObject(new UiSelector().className("android.widget.Button").description("–ü–æ—Å–º–æ—Ç—Ä–µ—Ç—å ‚úî Space Exploration - \"Our Universe\" (Episode 01) [2016 Documentary]"));
         playButton.click();
         UiObject videoContainer = new UiObject(new UiSelector().className("android.webkit.WebView"));
         UiDevice.getInstance().click((int) ((videoContainer.getBounds().right) * (90.0f / 100.0f)), (int) ((videoContainer.getBounds().bottom) * (95.0f / 100.0f)));

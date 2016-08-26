@@ -1,7 +1,5 @@
 package ru.batterytest.chrome;
 
-import com.android.uiautomator.core.UiObject;
-import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import ru.batterytest.steps.ChromeSteps;
 
