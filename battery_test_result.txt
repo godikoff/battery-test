@@ -1,0 +1,485 @@
+08-27 02:34:37 Yandex Browser ColdStart 1: 235
+08-27 02:34:45 Yandex Browser ColdStart 2: 235
+08-27 02:35:30 Yandex Browser ColdStart 1: 235
+08-27 02:35:33 Yandex Browser ColdStart 2: 235
+08-27 02:35:34 Yandex Browser ColdStart Current Avg: 235
+08-27 02:37:03 Yandex Browser ColdStart 1: 235
+08-27 02:37:05 Yandex Browser ColdStart 2: 235
+08-27 02:37:06 Yandex Browser ColdStart Current Avg: 235
+08-27 02:38:49 Yandex Browser ColdStart 1: 235
+08-27 02:38:49 Yandex Browser ColdStart 2: 235
+08-27 02:38:49 Yandex Browser ColdStart Current Avg: 235
+08-27 02:38:50 Yandex Browser Foreground 1: 235
+08-27 02:38:50 Yandex Browser Foreground Current Avg: 235
+08-27 02:38:52 Yandex Browser Background 1: 235
+08-27 02:38:52 Yandex Browser Background Current Avg: 235
+08-27 02:38:53 Yandex Browser UrlOpen 1: 235
+08-27 02:38:54 Yandex Browser UrlOpen 2: 235
+08-27 02:38:54 Yandex Browser UrlOpen Current Avg: 235
+08-27 02:38:55 Yandex Browser TenSitesForeground 1: 235
+08-27 02:38:55 Yandex Browser TenSitesForeground Current Avg: 235
+08-27 02:38:57 Yandex Browser TenSitesBackground 1: 235
+08-27 02:38:57 Yandex Browser TenSitesBackground Current Avg: 235
+08-27 02:38:58 Yandex Browser VideoPlay 1: 235
+08-27 02:38:58 Yandex Browser VideoPlay Current Avg: 235
+08-27 02:38:59 Yandex Browser Scroll 1: 235
+08-27 02:38:59 Yandex Browser Scroll Current Avg: 235
+08-27 02:39:01 Yandex Browser MusicPlay 1: 235
+08-27 02:39:01 Yandex Browser MusicPlay Current Avg: 235
+08-27 02:39:02 Yandex Browser HundredSitesForeground 1: 235
+08-27 02:39:02 Yandex Browser HundredSitesForeground Current Avg: 235
+08-27 02:40:39 Yandex Browser ColdStart 1: 235
+08-27 02:40:40 Yandex Browser ColdStart 2: 235
+08-27 02:40:40 Yandex Browser ColdStart Current Avg: 235
+08-27 02:40:41 Yandex Browser Foreground 1: 235
+08-27 02:40:41 Yandex Browser Foreground Current Avg: 235
+08-27 02:40:42 Yandex Browser Background 1: 235
+08-27 02:40:42 Yandex Browser Background Current Avg: 235
+08-27 02:40:44 Yandex Browser UrlOpen 1: 235
+08-27 02:40:44 Yandex Browser UrlOpen 2: 235
+08-27 02:40:44 Yandex Browser UrlOpen Current Avg: 235
+08-27 02:40:46 Yandex Browser TenSitesForeground 1: 235
+08-27 02:40:46 Yandex Browser TenSitesForeground Current Avg: 235
+08-27 02:40:47 Yandex Browser TenSitesBackground 1: 235
+08-27 02:40:47 Yandex Browser TenSitesBackground Current Avg: 235
+08-27 02:40:48 Yandex Browser VideoPlay 1: 235
+08-27 02:40:48 Yandex Browser VideoPlay Current Avg: 235
+08-27 02:40:50 Yandex Browser Scroll 1: 235
+08-27 02:40:50 Yandex Browser Scroll Current Avg: 235
+08-27 02:40:51 Yandex Browser MusicPlay 1: 235
+08-27 02:40:51 Yandex Browser MusicPlay Current Avg: 235
+08-27 02:40:53 Yandex Browser HundredSitesForeground 1: 235
+08-27 02:40:53 Yandex Browser HundredSitesForeground Current Avg: 235
+08-27 02:42:10 Yandex Browser ColdStart 1: 235
+08-27 02:42:10 Yandex Browser ColdStart 2: 235
+08-27 02:42:10 Yandex Browser ColdStart Current Avg: 235
+08-27 02:42:11 Yandex Browser Foreground 1: 235
+08-27 02:42:11 Yandex Browser Foreground Current Avg: 235
+08-27 02:42:11 Yandex Browser Background 1: 235
+08-27 02:42:11 Yandex Browser Background Current Avg: 235
+08-27 02:42:12 Yandex Browser UrlOpen 1: 235
+08-27 02:42:12 Yandex Browser UrlOpen 2: 235
+08-27 02:42:12 Yandex Browser UrlOpen Current Avg: 235
+08-27 02:42:13 Yandex Browser TenSitesForeground 1: 235
+08-27 02:42:13 Yandex Browser TenSitesForeground Current Avg: 235
+08-27 02:42:14 Yandex Browser TenSitesBackground 1: 235
+08-27 02:42:14 Yandex Browser TenSitesBackground Current Avg: 235
+08-27 02:42:15 Yandex Browser VideoPlay 1: 235
+08-27 02:42:15 Yandex Browser VideoPlay Current Avg: 235
+08-27 02:42:15 Yandex Browser Scroll 1: 235
+08-27 02:42:15 Yandex Browser Scroll Current Avg: 235
+08-27 02:42:16 Yandex Browser MusicPlay 1: 235
+08-27 02:42:16 Yandex Browser MusicPlay Current Avg: 235
+08-27 02:42:17 Yandex Browser HundredSitesForeground 1: 235
+08-27 02:42:17 Yandex Browser HundredSitesForeground Current Avg: 235
+08-27 02:43:01 Yandex Browser ColdStart 1: 235
+08-27 02:43:01 Yandex Browser ColdStart 2: 235
+08-27 02:43:01 Yandex Browser ColdStart Current Avg: 235
+08-27 03:05:25 Yandex Browser ColdStart 1: 235
+08-27 03:05:25 Yandex Browser ColdStart 2: 235
+08-27 03:05:25 Yandex Browser ColdStart Current Avg: 235
+08-27 03:05:38 Yandex Browser ColdStart 1: 235
+08-27 03:05:38 Yandex Browser ColdStart 2: 235
+08-27 03:05:38 Yandex Browser ColdStart Current Avg: 235
+08-27 03:05:39 Chrome ColdStart 1: 235
+08-27 03:05:39 Chrome ColdStart 2: 235
+08-27 03:05:39 Chrome ColdStart Current Avg: 235
+08-27 03:05:40 Opera ColdStart 1: 235
+08-27 03:05:40 Opera ColdStart 2: 235
+08-27 03:05:40 Opera ColdStart Current Avg: 235
+08-27 03:06:15 Yandex Browser ColdStart 1: 235
+08-27 03:06:15 Yandex Browser ColdStart 2: 235
+08-27 03:06:15 Yandex Browser ColdStart Current Avg: 235
+08-27 03:06:16 Yandex Browser Foreground 1: 235
+08-27 03:06:16 Yandex Browser Foreground Current Avg: 235
+08-27 03:06:16 Yandex Browser Background 1: 235
+08-27 03:06:16 Yandex Browser Background Current Avg: 235
+08-27 03:06:17 Yandex Browser UrlOpen 1: 235
+08-27 03:06:17 Yandex Browser UrlOpen 2: 235
+08-27 03:06:17 Yandex Browser UrlOpen Current Avg: 235
+08-27 03:06:18 Yandex Browser TenSitesForeground 1: 235
+08-27 03:06:18 Yandex Browser TenSitesForeground Current Avg: 235
+08-27 03:06:19 Yandex Browser TenSitesBackground 1: 235
+08-27 03:06:19 Yandex Browser TenSitesBackground Current Avg: 235
+08-27 03:06:20 Yandex Browser VideoPlay 1: 235
+08-27 03:06:20 Yandex Browser VideoPlay Current Avg: 235
+08-27 03:06:21 Yandex Browser Scroll 1: 235
+08-27 03:06:21 Yandex Browser Scroll Current Avg: 235
+08-27 03:06:21 Yandex Browser MusicPlay 1: 235
+08-27 03:06:21 Yandex Browser MusicPlay Current Avg: 235
+08-27 03:06:22 Yandex Browser HundredSitesForeground 1: 235
+08-27 03:06:22 Yandex Browser HundredSitesForeground Current Avg: 235
+08-27 03:06:23 Chrome ColdStart 1: 235
+08-27 03:06:23 Chrome ColdStart 2: 235
+08-27 03:06:23 Chrome ColdStart Current Avg: 235
+08-27 03:06:24 Chrome Foreground 1: 235
+08-27 03:06:24 Chrome Foreground Current Avg: 235
+08-27 03:06:25 Chrome Background 1: 235
+08-27 03:06:25 Chrome Background Current Avg: 235
+08-27 03:06:25 Chrome UrlOpen 1: 235
+08-27 03:06:26 Chrome UrlOpen 2: 235
+08-27 03:06:26 Chrome UrlOpen Current Avg: 235
+08-27 03:06:26 Chrome TenSitesForeground 1: 235
+08-27 03:06:26 Chrome TenSitesForeground Current Avg: 235
+08-27 03:06:27 Chrome TenSitesBackground 1: 235
+08-27 03:06:27 Chrome TenSitesBackground Current Avg: 235
+08-27 03:06:28 Chrome VideoPlay 1: 235
+08-27 03:06:28 Chrome VideoPlay Current Avg: 235
+08-27 03:06:29 Chrome Scroll 1: 235
+08-27 03:06:29 Chrome Scroll Current Avg: 235
+08-27 03:06:30 Chrome MusicPlay 1: 235
+08-27 03:06:30 Chrome MusicPlay Current Avg: 235
+08-27 03:06:30 Chrome HundredSitesForeground 1: 235
+08-27 03:06:30 Chrome HundredSitesForeground Current Avg: 235
+08-27 03:06:31 Opera ColdStart 1: 235
+08-27 03:06:31 Opera ColdStart 2: 235
+08-27 03:06:31 Opera ColdStart Current Avg: 235
+08-27 03:06:32 Opera Foreground 1: 235
+08-27 03:06:32 Opera Foreground Current Avg: 235
+08-27 03:06:33 Opera Background 1: 235
+08-27 03:06:33 Opera Background Current Avg: 235
+08-27 03:06:34 Opera UrlOpen 1: 235
+08-27 03:06:34 Opera UrlOpen 2: 235
+08-27 03:06:34 Opera UrlOpen Current Avg: 235
+08-27 03:06:35 Opera TenSitesForeground 1: 235
+08-27 03:06:35 Opera TenSitesForeground Current Avg: 235
+08-27 03:06:35 Opera TenSitesBackground 1: 235
+08-27 03:06:35 Opera TenSitesBackground Current Avg: 235
+08-27 03:06:36 Opera VideoPlay 1: 235
+08-27 03:06:36 Opera VideoPlay Current Avg: 235
+08-27 03:06:37 Opera Scroll 1: 235
+08-27 03:06:37 Opera Scroll Current Avg: 235
+08-27 03:06:38 Opera MusicPlay 1: 235
+08-27 03:06:38 Opera MusicPlay Current Avg: 235
+08-27 03:06:39 Opera HundredSitesForeground 1: 235
+08-27 03:06:39 Opera HundredSitesForeground Current Avg: 235
+08-27 03:24:14 Yandex Browser ColdStart 1: 235
+08-27 03:24:14 Yandex Browser ColdStart 2: 235
+08-27 03:24:14 Yandex Browser ColdStart Current Avg: 235
+08-27 03:24:15 Chrome ColdStart 1: 235
+08-27 03:24:15 Chrome ColdStart 2: 235
+08-27 03:24:15 Chrome ColdStart Current Avg: 235
+08-27 03:24:16 Opera ColdStart 1: 235
+08-27 03:24:16 Opera ColdStart 2: 235
+08-27 03:24:16 Opera ColdStart Current Avg: 235
+08-27 03:24:37 Yandex Browser ColdStart 1: 235
+08-27 03:24:37 Yandex Browser ColdStart 2: 235
+08-27 03:24:37 Yandex Browser ColdStart Current Avg: 235
+08-27 03:24:38 Chrome ColdStart 1: 235
+08-27 03:24:38 Chrome ColdStart 2: 235
+08-27 03:24:38 Chrome ColdStart Current Avg: 235
+08-27 03:24:39 Opera ColdStart 1: 235
+08-27 03:24:39 Opera ColdStart 2: 235
+08-27 03:24:39 Opera ColdStart Current Avg: 235
+08-27 03:29:32 Yandex Browser ColdStart 1: 235
+08-27 03:29:32 Yandex Browser ColdStart 2: 235
+08-27 03:29:32 Yandex Browser ColdStart Current Avg: 235
+08-27 03:30:20 Yandex Browser ColdStart 1: 235
+08-27 03:30:20 Yandex Browser ColdStart 2: 235
+08-27 03:30:20 Yandex Browser ColdStart Current Avg: 235
+08-27 03:31:05 Yandex Browser ColdStart 1: 235
+08-27 03:31:05 Yandex Browser ColdStart 2: 235
+08-27 03:31:05 Yandex Browser ColdStart Current Avg: 235
+08-27 03:34:52 Yandex Browser ColdStart 1: 235
+08-27 03:34:52 Yandex Browser ColdStart 2: 235
+08-27 03:34:52 Yandex Browser ColdStart Current Avg: 235
+08-27 03:35:20 Yandex Browser ColdStart 1: 235
+08-27 03:35:20 Yandex Browser ColdStart 2: 235
+08-27 03:35:20 Yandex Browser ColdStart Current Avg: 235
+08-27 03:48:38 Opera ColdStart 1: 235
+08-27 03:48:38 Opera ColdStart 2: 235
+08-27 03:48:38 Opera ColdStart Current Avg: 235
+08-27 03:53:38 Yandex Browser ColdStart 1: 235
+08-27 03:53:38 Yandex Browser ColdStart 2: 235
+08-27 03:53:38 Yandex Browser ColdStart Current Avg: 235
+08-27 03:53:38 Yandex Browser Foreground 1: 235
+08-27 03:53:38 Yandex Browser Foreground Current Avg: 235
+08-27 03:53:39 Yandex Browser Background 1: 235
+08-27 03:53:39 Yandex Browser Background Current Avg: 235
+08-27 03:53:40 Yandex Browser UrlOpen 1: 235
+08-27 03:53:40 Yandex Browser UrlOpen 2: 235
+08-27 03:53:40 Yandex Browser UrlOpen Current Avg: 235
+08-27 03:53:41 Yandex Browser TenSitesForeground 1: 235
+08-27 03:53:41 Yandex Browser TenSitesForeground Current Avg: 235
+08-27 03:53:42 Yandex Browser TenSitesBackground 1: 235
+08-27 03:53:42 Yandex Browser TenSitesBackground Current Avg: 235
+08-27 03:53:43 Yandex Browser VideoPlay 1: 235
+08-27 03:53:43 Yandex Browser VideoPlay Current Avg: 235
+08-27 03:53:44 Yandex Browser Scroll 1: 235
+08-27 03:53:44 Yandex Browser Scroll Current Avg: 235
+08-27 03:53:45 Yandex Browser MusicPlay 1: 235
+08-27 03:53:45 Yandex Browser MusicPlay Current Avg: 235
+08-27 03:53:46 Yandex Browser HundredSitesForeground 1: 235
+08-27 03:53:46 Yandex Browser HundredSitesForeground Current Avg: 235
+08-27 03:53:46 Chrome ColdStart 1: 235
+08-27 03:53:46 Chrome ColdStart 2: 235
+08-27 03:53:46 Chrome ColdStart Current Avg: 235
+08-27 03:53:47 Chrome Foreground 1: 235
+08-27 03:53:47 Chrome Foreground Current Avg: 235
+08-27 03:53:48 Chrome Background 1: 235
+08-27 03:53:48 Chrome Background Current Avg: 235
+08-27 03:53:49 Chrome UrlOpen 1: 235
+08-27 03:53:49 Chrome UrlOpen 2: 235
+08-27 03:53:49 Chrome UrlOpen Current Avg: 235
+08-27 03:53:50 Chrome TenSitesForeground 1: 235
+08-27 03:53:50 Chrome TenSitesForeground Current Avg: 235
+08-27 03:53:51 Chrome TenSitesBackground 1: 235
+08-27 03:53:51 Chrome TenSitesBackground Current Avg: 235
+08-27 03:53:52 Chrome VideoPlay 1: 235
+08-27 03:53:52 Chrome VideoPlay Current Avg: 235
+08-27 03:53:52 Chrome Scroll 1: 235
+08-27 03:53:52 Chrome Scroll Current Avg: 235
+08-27 03:53:53 Chrome MusicPlay 1: 235
+08-27 03:53:53 Chrome MusicPlay Current Avg: 235
+08-27 03:53:54 Chrome HundredSitesForeground 1: 235
+08-27 03:53:54 Chrome HundredSitesForeground Current Avg: 235
+08-27 03:53:55 Opera ColdStart 1: 235
+08-27 03:53:55 Opera ColdStart 2: 235
+08-27 03:53:55 Opera ColdStart Current Avg: 235
+08-27 03:53:56 Opera Foreground 1: 235
+08-27 03:53:56 Opera Foreground Current Avg: 235
+08-27 03:53:57 Opera Background 1: 235
+08-27 03:53:57 Opera Background Current Avg: 235
+08-27 03:53:58 Opera UrlOpen 1: 235
+08-27 03:53:58 Opera UrlOpen 2: 235
+08-27 03:53:58 Opera UrlOpen Current Avg: 235
+08-27 03:53:58 Opera TenSitesForeground 1: 235
+08-27 03:53:58 Opera TenSitesForeground Current Avg: 235
+08-27 03:53:59 Opera TenSitesBackground 1: 235
+08-27 03:53:59 Opera TenSitesBackground Current Avg: 235
+08-27 03:54:00 Opera VideoPlay 1: 235
+08-27 03:54:00 Opera VideoPlay Current Avg: 235
+08-27 03:54:01 Opera Scroll 1: 235
+08-27 03:54:01 Opera Scroll Current Avg: 235
+08-27 03:54:02 Opera MusicPlay 1: 235
+08-27 03:54:02 Opera MusicPlay Current Avg: 235
+08-27 03:54:03 Opera HundredSitesForeground 1: 235
+08-27 03:54:03 Opera HundredSitesForeground Current Avg: 235
+08-27 03:55:55 Yandex Browser ColdStart 1: 235
+08-27 03:55:55 Yandex Browser ColdStart 2: 235
+08-27 03:55:55 Yandex Browser ColdStart Current Avg: 235
+08-27 03:55:56 Yandex Browser Foreground 1: 235
+08-27 03:55:56 Yandex Browser Foreground Current Avg: 235
+08-27 03:55:57 Yandex Browser Background 1: 235
+08-27 03:55:57 Yandex Browser Background Current Avg: 235
+08-27 03:55:58 Yandex Browser UrlOpen 1: 235
+08-27 03:55:58 Yandex Browser UrlOpen 2: 235
+08-27 03:55:58 Yandex Browser UrlOpen Current Avg: 235
+08-27 03:55:59 Yandex Browser TenSitesForeground 1: 235
+08-27 03:55:59 Yandex Browser TenSitesForeground Current Avg: 235
+08-27 03:55:59 Yandex Browser TenSitesBackground 1: 235
+08-27 03:55:59 Yandex Browser TenSitesBackground Current Avg: 235
+08-27 03:56:00 Yandex Browser VideoPlay 1: 235
+08-27 03:56:00 Yandex Browser VideoPlay Current Avg: 235
+08-27 03:56:01 Yandex Browser Scroll 1: 235
+08-27 03:56:01 Yandex Browser Scroll Current Avg: 235
+08-27 03:56:02 Yandex Browser MusicPlay 1: 235
+08-27 03:56:02 Yandex Browser MusicPlay Current Avg: 235
+08-27 03:56:03 Yandex Browser HundredSitesForeground 1: 235
+08-27 03:56:03 Yandex Browser HundredSitesForeground Current Avg: 235
+08-27 03:56:04 Chrome ColdStart 1: 235
+08-27 03:56:04 Chrome ColdStart 2: 235
+08-27 03:56:04 Chrome ColdStart Current Avg: 235
+08-27 03:56:04 Chrome Foreground 1: 235
+08-27 03:56:04 Chrome Foreground Current Avg: 235
+08-27 03:56:05 Chrome Background 1: 235
+08-27 03:56:05 Chrome Background Current Avg: 235
+08-27 03:56:06 Chrome UrlOpen 1: 235
+08-27 03:56:06 Chrome UrlOpen 2: 235
+08-27 03:56:06 Chrome UrlOpen Current Avg: 235
+08-27 03:56:07 Chrome TenSitesForeground 1: 235
+08-27 03:56:07 Chrome TenSitesForeground Current Avg: 235
+08-27 03:56:08 Chrome TenSitesBackground 1: 235
+08-27 03:56:08 Chrome TenSitesBackground Current Avg: 235
+08-27 03:56:09 Chrome VideoPlay 1: 235
+08-27 03:56:09 Chrome VideoPlay Current Avg: 235
+08-27 03:56:09 Chrome Scroll 1: 235
+08-27 03:56:09 Chrome Scroll Current Avg: 235
+08-27 03:56:10 Chrome MusicPlay 1: 235
+08-27 03:56:10 Chrome MusicPlay Current Avg: 235
+08-27 03:56:11 Chrome HundredSitesForeground 1: 235
+08-27 03:56:11 Chrome HundredSitesForeground Current Avg: 235
+08-27 03:56:12 Opera ColdStart 1: 235
+08-27 03:56:12 Opera ColdStart 2: 235
+08-27 03:56:12 Opera ColdStart Current Avg: 235
+08-27 03:56:13 Opera Foreground 1: 235
+08-27 03:56:13 Opera Foreground Current Avg: 235
+08-27 03:56:14 Opera Background 1: 235
+08-27 03:56:14 Opera Background Current Avg: 235
+08-27 03:56:15 Opera UrlOpen 1: 235
+08-27 03:56:15 Opera UrlOpen 2: 235
+08-27 03:56:15 Opera UrlOpen Current Avg: 235
+08-27 03:56:15 Opera TenSitesForeground 1: 235
+08-27 03:56:15 Opera TenSitesForeground Current Avg: 235
+08-27 03:56:16 Opera TenSitesBackground 1: 235
+08-27 03:56:16 Opera TenSitesBackground Current Avg: 235
+08-27 03:56:17 Opera VideoPlay 1: 235
+08-27 03:56:17 Opera VideoPlay Current Avg: 235
+08-27 03:56:18 Opera Scroll 1: 235
+08-27 03:56:18 Opera Scroll Current Avg: 235
+08-27 03:56:19 Opera MusicPlay 1: 235
+08-27 03:56:19 Opera MusicPlay Current Avg: 235
+08-27 03:56:20 Opera HundredSitesForeground 1: 235
+08-27 03:56:20 Opera HundredSitesForeground Current Avg: 235
+08-27 03:56:30 Yandex Browser ColdStart 1: 235
+08-27 03:56:30 Yandex Browser ColdStart 2: 235
+08-27 03:56:30 Yandex Browser ColdStart Current Avg: 235
+08-27 03:56:30 Yandex Browser Foreground 1: 235
+08-27 03:56:30 Yandex Browser Foreground Current Avg: 235
+08-27 03:56:31 Yandex Browser Background 1: 235
+08-27 03:56:31 Yandex Browser Background Current Avg: 235
+08-27 03:56:32 Yandex Browser UrlOpen 1: 235
+08-27 03:56:32 Yandex Browser UrlOpen 2: 235
+08-27 03:56:32 Yandex Browser UrlOpen Current Avg: 235
+08-27 03:56:33 Yandex Browser TenSitesForeground 1: 235
+08-27 03:56:33 Yandex Browser TenSitesForeground Current Avg: 235
+08-27 03:56:34 Yandex Browser TenSitesBackground 1: 235
+08-27 03:56:34 Yandex Browser TenSitesBackground Current Avg: 235
+08-27 03:56:35 Yandex Browser VideoPlay 1: 235
+08-27 03:56:35 Yandex Browser VideoPlay Current Avg: 235
+08-27 03:56:36 Yandex Browser Scroll 1: 235
+08-27 03:56:36 Yandex Browser Scroll Current Avg: 235
+08-27 03:56:37 Yandex Browser MusicPlay 1: 235
+08-27 03:56:37 Yandex Browser MusicPlay Current Avg: 235
+08-27 03:56:38 Yandex Browser HundredSitesForeground 1: 235
+08-27 03:56:38 Yandex Browser HundredSitesForeground Current Avg: 235
+08-27 03:56:38 Chrome ColdStart 1: 235
+08-27 03:56:38 Chrome ColdStart 2: 235
+08-27 03:56:38 Chrome ColdStart Current Avg: 235
+08-27 03:56:40 Chrome Foreground 1: 235
+08-27 03:56:40 Chrome Foreground Current Avg: 235
+08-27 03:56:40 Chrome Background 1: 235
+08-27 03:56:40 Chrome Background Current Avg: 235
+08-27 03:56:41 Chrome UrlOpen 1: 235
+08-27 03:56:41 Chrome UrlOpen 2: 235
+08-27 03:56:41 Chrome UrlOpen Current Avg: 235
+08-27 03:56:42 Chrome TenSitesForeground 1: 235
+08-27 03:56:42 Chrome TenSitesForeground Current Avg: 235
+08-27 03:56:43 Chrome TenSitesBackground 1: 235
+08-27 03:56:43 Chrome TenSitesBackground Current Avg: 235
+08-27 03:56:44 Chrome VideoPlay 1: 235
+08-27 03:56:44 Chrome VideoPlay Current Avg: 235
+08-27 03:56:45 Chrome Scroll 1: 235
+08-27 03:56:45 Chrome Scroll Current Avg: 235
+08-27 03:56:46 Chrome MusicPlay 1: 235
+08-27 03:56:46 Chrome MusicPlay Current Avg: 235
+08-27 03:56:47 Chrome HundredSitesForeground 1: 235
+08-27 03:56:47 Chrome HundredSitesForeground Current Avg: 235
+08-27 03:56:48 Opera ColdStart 1: 235
+08-27 03:56:48 Opera ColdStart 2: 235
+08-27 03:56:48 Opera ColdStart Current Avg: 235
+08-27 03:56:49 Opera Foreground 1: 235
+08-27 03:56:49 Opera Foreground Current Avg: 235
+08-27 03:56:50 Opera Background 1: 235
+08-27 03:56:50 Opera Background Current Avg: 235
+08-27 03:56:50 Opera UrlOpen 1: 235
+08-27 03:56:50 Opera UrlOpen 2: 235
+08-27 03:56:50 Opera UrlOpen Current Avg: 235
+08-27 03:56:51 Opera TenSitesForeground 1: 235
+08-27 03:56:51 Opera TenSitesForeground Current Avg: 235
+08-27 03:56:52 Opera TenSitesBackground 1: 235
+08-27 03:56:52 Opera TenSitesBackground Current Avg: 235
+08-27 03:56:53 Opera VideoPlay 1: 235
+08-27 03:56:53 Opera VideoPlay Current Avg: 235
+08-27 03:56:54 Opera Scroll 1: 235
+08-27 03:56:54 Opera Scroll Current Avg: 235
+08-27 03:56:55 Opera MusicPlay 1: 235
+08-27 03:56:55 Opera MusicPlay Current Avg: 235
+08-27 03:56:56 Opera HundredSitesForeground 1: 235
+08-27 03:56:56 Opera HundredSitesForeground Current Avg: 235
+08-27 03:59:53 Yandex Browser ColdStart 1: 235
+08-27 03:59:53 Yandex Browser ColdStart 2: 235
+08-27 03:59:53 Yandex Browser ColdStart Current Avg: 235
+08-27 03:59:54 Yandex Browser Foreground 1: 235
+08-27 03:59:54 Yandex Browser Foreground Current Avg: 235
+08-27 03:59:55 Yandex Browser Background 1: 235
+08-27 03:59:55 Yandex Browser Background Current Avg: 235
+08-27 03:59:56 Yandex Browser UrlOpen 1: 235
+08-27 03:59:56 Yandex Browser UrlOpen 2: 235
+08-27 03:59:56 Yandex Browser UrlOpen Current Avg: 235
+08-27 03:59:56 Yandex Browser TenSitesForeground 1: 235
+08-27 03:59:56 Yandex Browser TenSitesForeground Current Avg: 235
+08-27 03:59:57 Yandex Browser TenSitesBackground 1: 235
+08-27 03:59:57 Yandex Browser TenSitesBackground Current Avg: 235
+08-27 03:59:58 Yandex Browser VideoPlay 1: 235
+08-27 03:59:58 Yandex Browser VideoPlay Current Avg: 235
+08-27 03:59:59 Yandex Browser Scroll 1: 235
+08-27 03:59:59 Yandex Browser Scroll Current Avg: 235
+08-27 04:00:00 Yandex Browser MusicPlay 1: 235
+08-27 04:00:00 Yandex Browser MusicPlay Current Avg: 235
+08-27 04:00:01 Yandex Browser HundredSitesForeground 1: 235
+08-27 04:00:01 Yandex Browser HundredSitesForeground Current Avg: 235
+08-27 04:00:01 Chrome ColdStart 1: 235
+08-27 04:00:01 Chrome ColdStart 2: 235
+08-27 04:00:01 Chrome ColdStart Current Avg: 235
+08-27 04:00:02 Chrome Foreground 1: 235
+08-27 04:00:02 Chrome Foreground Current Avg: 235
+08-27 04:00:03 Chrome Background 1: 235
+08-27 04:00:03 Chrome Background Current Avg: 235
+08-27 04:00:04 Chrome UrlOpen 1: 235
+08-27 04:00:04 Chrome UrlOpen 2: 235
+08-27 04:00:04 Chrome UrlOpen Current Avg: 235
+08-27 04:00:05 Chrome TenSitesForeground 1: 235
+08-27 04:00:05 Chrome TenSitesForeground Current Avg: 235
+08-27 04:00:06 Chrome TenSitesBackground 1: 235
+08-27 04:00:06 Chrome TenSitesBackground Current Avg: 235
+08-27 04:00:06 Chrome VideoPlay 1: 235
+08-27 04:00:06 Chrome VideoPlay Current Avg: 235
+08-27 04:00:07 Chrome Scroll 1: 235
+08-27 04:00:07 Chrome Scroll Current Avg: 235
+08-27 04:00:08 Chrome MusicPlay 1: 235
+08-27 04:00:08 Chrome MusicPlay Current Avg: 235
+08-27 04:00:09 Chrome HundredSitesForeground 1: 235
+08-27 04:00:09 Chrome HundredSitesForeground Current Avg: 235
+08-27 04:00:10 Opera ColdStart 1: 235
+08-27 04:00:10 Opera ColdStart 2: 235
+08-27 04:00:10 Opera ColdStart Current Avg: 235
+08-27 04:00:11 Opera Foreground 1: 235
+08-27 04:00:11 Opera Foreground Current Avg: 235
+08-27 04:00:12 Opera Background 1: 235
+08-27 04:00:12 Opera Background Current Avg: 235
+08-27 04:00:13 Opera UrlOpen 1: 235
+08-27 04:00:13 Opera UrlOpen 2: 235
+08-27 04:00:13 Opera UrlOpen Current Avg: 235
+08-27 04:00:13 Opera TenSitesForeground 1: 235
+08-27 04:00:13 Opera TenSitesForeground Current Avg: 235
+08-27 04:00:14 Opera TenSitesBackground 1: 235
+08-27 04:00:14 Opera TenSitesBackground Current Avg: 235
+08-27 04:00:15 Opera VideoPlay 1: 235
+08-27 04:00:15 Opera VideoPlay Current Avg: 235
+08-27 04:00:16 Opera Scroll 1: 235
+08-27 04:00:16 Opera Scroll Current Avg: 235
+08-27 04:00:17 Opera MusicPlay 1: 235
+08-27 04:00:17 Opera MusicPlay Current Avg: 235
+08-27 04:00:18 Opera HundredSitesForeground 1: 235
+08-27 04:00:18 Opera HundredSitesForeground Current Avg: 235
+08-27 04:01:15 Yandex Browser ColdStart 1: 235
+08-27 04:01:15 Yandex Browser ColdStart 2: 235
+08-27 04:01:15 Yandex Browser ColdStart Current Avg: 235
+08-27 04:01:59 Yandex Browser ColdStart 1: 235
+08-27 04:01:59 Yandex Browser ColdStart 2: 235
+08-27 04:01:59 Yandex Browser ColdStart Current Avg: 235
+08-27 04:02:00 Chrome ColdStart 1: 235
+08-27 04:02:00 Chrome ColdStart 2: 235
+08-27 04:02:00 Chrome ColdStart Current Avg: 235
+08-27 04:02:01 Opera ColdStart 1: 235
+08-27 04:02:01 Opera ColdStart 2: 235
+08-27 04:02:01 Opera ColdStart Current Avg: 235
+08-27 04:03:31 Yandex Browser ColdStart 1: 235
+08-27 04:03:31 Yandex Browser ColdStart 2: 235
+08-27 04:03:31 Yandex Browser ColdStart Current Avg: 235
+08-27 04:03:32 Chrome ColdStart 1: 235
+08-27 04:03:32 Chrome ColdStart 2: 235
+08-27 04:03:32 Chrome ColdStart Current Avg: 235
+08-27 04:03:33 Opera ColdStart 1: 235
+08-27 04:03:33 Opera ColdStart 2: 235
+08-27 04:03:33 Opera ColdStart Current Avg: 235
+08-27 04:03:44 Yandex Browser ColdStart 1: 235
+08-27 04:03:44 Yandex Browser ColdStart 2: 235
+08-27 04:03:44 Yandex Browser ColdStart Current Avg: 235
+08-27 04:03:45 Chrome ColdStart 1: 235
+08-27 04:03:45 Chrome ColdStart 2: 235
+08-27 04:03:45 Chrome ColdStart Current Avg: 235
+08-27 04:03:46 Opera ColdStart 1: 235
+08-27 04:03:46 Opera ColdStart 2: 235
+08-27 04:03:46 Opera ColdStart Current Avg: 235

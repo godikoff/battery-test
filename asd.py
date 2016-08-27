@@ -1,5 +1,6 @@
 import os, csv, sys, time, shutil, subprocess, threading, Queue, datetime
 from time import gmtime, strftime
+from openpyxl import Workbook
 import xlsxwriter
 
 #Don't forget to:
@@ -11,7 +12,9 @@ voltage = "4.2"
 bro = []
 test = []
 
-workbook = xlsxwriter.Workbook('battery_test.xlsx')
+wb = Workbook()
+ws = wb.active
+workbook = xlsxwriter.Workbook('Expenses02.xlsx')
 worksheet = workbook.add_worksheet()
 format = workbook.add_format()
 format.set_align('right')
@@ -34,7 +37,7 @@ class Opera:
 class ColdStart:
     testClass = "ColdStart"
     measurementDuration = 30
-    runs = 10
+    runs = 2
     notFirstStart = ""
 
 class Foreground:
@@ -50,7 +53,7 @@ class Background:
 class UlrOpen:
     testClass = "UrlOpen"
     measurementDuration = 30
-    runs = 10
+    runs = 2
     clearBrowser = ""
 
 class TenSitesForeground:
@@ -120,23 +123,6 @@ if testType == 0:
 else:
     test.append(testList[testType-1])
 
-#Uncomment block below to rebuild .jar
-if os.path.isfile("build.xml"):
-    os.remove("build.xml")
-if os.path.isdir("bin"):
-    shutil.rmtree("bin")
-os.system("android.bat create uitest-project -n battery-test -t 2 -p C:/appium/battery-test")
-os.system("ant build")
-
-os.system("adb push bin/battery-test.jar /data/local/tmp/")
-
-
-def RunMonitor(measurementDuration):
-    os.chdir("C:/Program Files (x86)/Monsoon Solutions Inc/Power Monitor")
-    print "start measurement at " + strftime("%m-%d %H:%M:%S")
-    os.system("PowerToolCmd.exe -trigger=ETY100D" + measurementDuration + "A -vout=" + voltage + " -USB=auto -keeppower -savefile=battery_test.pt4 -noexitwait")
-    print "stop measurement at " + strftime("%m-%d %H:%M:%S")
-
 def getBroVersion(packageName):
     class AsynchronousFileReader(threading.Thread):
 
@@ -164,72 +150,6 @@ def getBroVersion(packageName):
     yaBroVersion = stdout_queue.get().split("=")[1].strip()
     return yaBroVersion
 
-def LogReader(measurementDuration):
-    class AsynchronousFileReader(threading.Thread):
-
-        def __init__(self, fd, queue):
-            assert isinstance(queue, Queue.Queue)
-            assert callable(fd.readline)
-            threading.Thread.__init__(self)
-            self._fd = fd
-            self._queue = queue
-
-        def run(self):
-            for line in iter(self._fd.readline, ''):
-                self._queue.put(line)
-
-        def eof(self):
-            return not self.is_alive() and self._queue.empty()
-
-        def stop(self):
-            self._stop.set()
-
-    process = subprocess.Popen(["adb", "logcat", "-v", "time"], stdout=subprocess.PIPE)
-
-    stdout_queue = Queue.Queue()
-    stdout_reader = AsynchronousFileReader(process.stdout, stdout_queue)
-    stdout_reader.start()
-
-    while not stdout_reader.eof():
-        while not stdout_queue.empty():
-            line = stdout_queue.get()
-            if "start measurement" in line:
-                RunMonitor(measurementDuration)
-
-def LogFailFinder():
-    class AsynchronousFileReader(threading.Thread):
-
-        def __init__(self, fd, queue):
-            assert isinstance(queue, Queue.Queue)
-            assert callable(fd.readline)
-            threading.Thread.__init__(self)
-            self._fd = fd
-            self._queue = queue
-
-        def run(self):
-            for line in iter(self._fd.readline, ''):
-                self._queue.put(line)
-
-        def eof(self):
-            return not self.is_alive() and self._queue.empty()
-
-        def stop(self):
-            self._stop.set()
-
-    process = subprocess.Popen(["adb", "logcat", "-v", "time", "-d"], stdout=subprocess.PIPE)
-
-    stdout_queue = Queue.Queue()
-    stdout_reader = AsynchronousFileReader(process.stdout, stdout_queue)
-    stdout_reader.start()
-
-    while not stdout_reader.eof():
-        while not stdout_queue.empty():
-            line = stdout_queue.get()
-            if "battery test failed" in line:
-                return line
-            elif "battery test passed" in line:
-                return "passed"
-
 def RunTests(broList, browser, testList, test):
     for browserToRun in browser:
         broNameAndVersion = browserToRun.browserName + " " + getBroVersion(browserToRun.package)
@@ -243,35 +163,26 @@ def RunTests(broList, browser, testList, test):
             for browsersToClear in broList:
                 print browsersToClear.browserName + " clearing..."
                 os.system("adb shell pm clear " + browsersToClear.package)
-                time.sleep(1)
+                time.sleep(0)
 
             if hasattr(testToRun, 'notFirstStart'):
                 print "First start..."
-                os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + ".ColdStart")
                 print "...please wait..."
-                time.sleep(80)
+                time.sleep(0)
 
             if hasattr(testToRun, 'enableRotation'):
-                os.system("adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:1")
                 print "Screen rotation enabled!"
 
             retryCount = 0
             while testNumber<testToRun.runs+1:
 
-                os.system("adb shell am force-stop " + browserToRun.package)
                 print browserToRun.browserName + " stopped!"
 
                 if hasattr(testToRun, 'clearBrowser'):
                     print browserToRun.browserName + " clearing..."
-                    os.system("adb shell pm clear " + browserToRun.package)
 
-                #os.system("adb kill-server")
-                os.system("adb devices")
-                os.system("adb logcat -c")
-                os.system("start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + "." + testToRun.testClass + " --nohup")
-                LogReader(str(testToRun.measurementDuration))
-                time.sleep(3)
-                findFailInLog = LogFailFinder()
+                time.sleep(0)
+                findFailInLog = "passed"
                 if findFailInLog == "passed":
                     try:
                         with open('battery_test.csv') as csvfile:
@@ -319,7 +230,7 @@ def RunTests(broList, browser, testList, test):
                     except:
                         print "battery_test_result.txt reading error\n"
 
-                time.sleep(5)
+                time.sleep(0)
 
             if (testToRun.runs > 9 and testNumber > 5):
                 allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
@@ -328,14 +239,13 @@ def RunTests(broList, browser, testList, test):
                 allTestsCurrentAvg.remove(min(allTestsCurrentAvg))
 
             if hasattr(testToRun, 'enableRotation'):
-                os.system("adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:0")
                 print "Screen rotation disabled!"
 
             try:
                 result = open('battery_test_result.txt', 'a')
                 try:
-                    result.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg)) + "\n")
-                    worksheet.write(broList.index(browserToRun)+1, testList.index(testToRun)+1, sum(allTestsCurrentAvg)/len(allTestsCurrentAvg))
+                    result.write(strftime("%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass+ " Current Avg: " + str(sum(allTestsCurrentAvg)/len(allTestsCurrentAvg)) + "\n"),
+                    worksheet.write(broList.index(browserToRun)+1, testList.index(testToRun)+1, sum(allTestsCurrentAvg)/len(allTestsCurrentAvg), format)
                 except:
                     print "full test result writing error\n"
                 try:
@@ -345,7 +255,9 @@ def RunTests(broList, browser, testList, test):
                 result.close()
             except:
                 print "battery_test_result.txt reading error\n"
-            time.sleep(5)
+            time.sleep(0)
+        print "all test finished"
+    print "all bro finished"
 
 RunTests(broList, bro, testList, test)
 workbook.close()
