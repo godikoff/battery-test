@@ -23,6 +23,7 @@ def RunMonitor(measurementDuration):
     print "start measurement at " + strftime("%m-%d %H:%M:%S")
     os.system(
         "PowerToolCmd.exe -trigger=ETY100D" + measurementDuration + "A -vout=" + voltage + " -USB=auto -keeppower -savefile=battery_test.pt4 -noexitwait")
+    os.chdir(homeDir)
     print "stop measurement at " + strftime("%m-%d %H:%M:%S")
 
 
@@ -183,7 +184,7 @@ def RunTests(broList, browser, testList, test):
                                 print "single result printing error"
 
                             try:
-                                singleResult = open('battery_test_result.txt', 'a')
+                                singleResult = open(txtFilename, 'a')
                                 singleResult.write(strftime(
                                     "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
                                     testNumber) + ": " + str(sum(currentList) / len(currentList)) + "\n")
@@ -198,7 +199,7 @@ def RunTests(broList, browser, testList, test):
                 else:
                     retryCount = retryCount + 1
                     try:
-                        with open('battery_test_result.txt', 'a') as failResult:
+                        with open(txtFilename, 'a') as failResult:
                             try:
                                 print strftime(
                                     "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
@@ -235,7 +236,7 @@ def RunTests(broList, browser, testList, test):
                 print "Screen rotation disabled!"
 
             try:
-                result = open('battery_test_result.txt', 'a')
+                result = open(txtFilename, 'a')
                 try:
                     result.write(strftime(
                         "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(
@@ -347,7 +348,9 @@ class HundredSitesForeground:
     clearBrowser = ""
 
 
-xlsxFilename = YandexBrowser.browserName + ".xlsx"
+homeDir =  os.getcwd()
+xlsxFilename = homeDir + "/" + YandexBrowser.browserName + ".xlsx"
+txtFilename = homeDir + "/" + YandexBrowser.browserName + ".txt"
 if not os.path.isfile(xlsxFilename):
     workbookTmp = Workbook()
     workbookTmp.save(xlsxFilename)
