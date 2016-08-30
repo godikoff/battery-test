@@ -27,6 +27,7 @@ public class HundredSitesForeground extends UiAutomatorTestCase {
 
     public void test() throws Exception {
         ChromeSteps step = new ChromeSteps();
+        step.precondition();
         step.browserStart(6000);
         for (int i=0;i<100;i++) {
             openTab();

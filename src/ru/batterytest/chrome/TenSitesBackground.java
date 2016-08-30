@@ -19,6 +19,7 @@ public class TenSitesBackground extends UiAutomatorTestCase {
 
     public void test() throws Exception {
         ChromeSteps step = new ChromeSteps();
+        step.precondition();
         step.browserStart(3000);
         step.openUrlInCurrentTab("www.worldoftanks.ru");
         sleep(10000);

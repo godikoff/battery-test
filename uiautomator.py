@@ -1,5 +1,6 @@
 import os
 import csv
+import sys
 import time
 import shutil
 import subprocess
@@ -24,6 +25,7 @@ def RunMonitor(measurementDuration):
     os.system(
         "PowerToolCmd.exe -trigger=ETY100D" + measurementDuration + "A -vout=" + voltage + " -USB=auto -keeppower -savefile=battery_test.pt4 -noexitwait")
     os.chdir(homeDir)
+    shutil.copy("C:/Program Files (x86)/Monsoon Solutions Inc/Power Monitor/battery_test.scv", "battery_test.csv")
     print "stop measurement at " + strftime("%m-%d %H:%M:%S")
 
 
@@ -367,9 +369,7 @@ for browserToChoose in broList:
     worksheet["A" + str(broList.index(browserToChoose) + 2)] = browserToChoose.browserName
     worksheet.column_dimensions["A"].width = max(len(x.browserName) for x in broList)
     worksheet["A" + str(broList.index(browserToChoose) + 2)].alignment = alignment
-    print str(bNumber) + ". " + browserToChoose.browserName
     bNumber = bNumber + 1
-browserType = input("Choose browser (0 for all): ")
 workbook.save(xlsxFilename)
 
 print ""
@@ -381,28 +381,35 @@ for testToChoose in testList:
     worksheet[cellNumber] = testToChoose.testClass
     worksheet[cellNumber].alignment = alignment
     worksheet.column_dimensions[str(list(string.ascii_uppercase)[tNumber])].width = len(testToChoose.testClass) + 2
-    print str(tNumber) + ". " + testToChoose.testClass
     tNumber = tNumber + 1
-testType = input("Choose test (0 for all): ")
 workbook.save(xlsxFilename)
 
-if browserType == 0:
-    bro = broList
-else:
-    bro.append(broList[browserType - 1])
 
-if testType == 0:
-    test = testList
+if (len(sys.argv)) == 3:
+    for i in broList:
+        if i.forArgs in sys.argv[1]:
+            bro.append(i)
+    for i in testList:
+        if i.forArgs in sys.argv[2]:
+            test.append(i)
 else:
-    test.append(testList[testType - 1])
+    print "Usage:\n  asd.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
+    print "Browser list:"
+    for browser in broList:
+        print browser.forArgs + " - " + browser.browserName
+    print "\nTest list:"
+    for n in testList:
+        print n.forArgs + " - " + n.testClass
+    sys.exit()
+
 
 # Uncomment block below to rebuild .jar
-if os.path.isfile("build.xml"):
-    os.remove("build.xml")
-if os.path.isdir("bin"):
-    shutil.rmtree("bin")
-os.system("android.bat create uitest-project -n battery-test -t 2 -p C:/appium/battery-test")
-os.system("ant build")
+#if os.path.isfile("build.xml"):
+#    os.remove("build.xml")
+#if os.path.isdir("bin"):
+#    shutil.rmtree("bin")
+#os.system("android.bat create uitest-project -n battery-test -t 2 -p " + homeDir)
+#os.system("ant build")
 
 os.system("adb push bin/battery-test.jar /data/local/tmp/")
 

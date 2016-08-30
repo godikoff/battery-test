@@ -7,6 +7,7 @@ import ru.batterytest.steps.YaBroSteps;
 public class Scroll extends UiAutomatorTestCase {
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
+        step.precondition();
         step.browserStart(30000);
         step.openUrlFromSentry("www.bash.im");
         sleep(30000);

@@ -7,6 +7,7 @@ import ru.batterytest.steps.ChromeSteps;
 public class Scroll extends UiAutomatorTestCase {
     public void test() throws Exception {
         ChromeSteps step = new ChromeSteps();
+        step.precondition();
         step.browserStart(30000);
         step.openUrlInCurrentTab("www.bash.im");
         sleep(30000);

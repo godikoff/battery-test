@@ -6,6 +6,7 @@ import ru.batterytest.steps.YaBroSteps;
 public class MusicPlay extends UiAutomatorTestCase {
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
+        step.precondition();
         step.browserStart(60000);
         step.openUrlFromSentry("https://m.vk.com");
         sleep(10000);

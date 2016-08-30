@@ -1,5 +1,6 @@
 package ru.batterytest.steps;
 
+import android.os.RemoteException;
 import android.util.Log;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
@@ -8,6 +9,11 @@ import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 public class ChromeSteps extends UiAutomatorTestCase {
+
+    public void precondition() throws RemoteException {
+        UiDevice.getInstance().pressHome();
+        UiDevice.getInstance().setOrientationNatural();
+    }
 
     //start Chrome from homescreen
     public void browserStart(int s) throws UiObjectNotFoundException {

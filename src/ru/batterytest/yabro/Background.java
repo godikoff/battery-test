@@ -7,6 +7,7 @@ import ru.batterytest.steps.YaBroSteps;
 public class Background extends UiAutomatorTestCase {
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
+        step.precondition();
         sleep(2000);
         step.browserStart(3000);
         sleep(22000);

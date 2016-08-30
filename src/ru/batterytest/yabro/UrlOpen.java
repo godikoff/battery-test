@@ -8,6 +8,7 @@ import ru.batterytest.steps.YaBroSteps;
 public class UrlOpen extends UiAutomatorTestCase {
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
+        step.precondition();
         step.browserStart(60000);
         step.omniboxTap();
         step.omniboxInput("www.bash.im");

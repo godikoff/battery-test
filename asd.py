@@ -1,4 +1,5 @@
 import os
+import sys
 import csv
 import time
 import subprocess
@@ -180,6 +181,7 @@ class YandexBrowser:
     package = "com.yandex.browser"
     browserName = "Yandex Browser " + getBroVersion(package)
     testBrowser = "yabro"
+    forArgs = "Y"
 
 
 class Chrome:
@@ -189,6 +191,7 @@ class Chrome:
     package = "com.android.chrome"
     browserName = "Chrome " + getBroVersion(package)
     testBrowser = "chrome"
+    forArgs = "B"
 
 
 class Opera:
@@ -198,6 +201,7 @@ class Opera:
     package = "com.opera.browser"
     browserName = "Opera " + getBroVersion(package)
     testBrowser = "opera"
+    forArgs = "O"
 
 
 class ColdStart:
@@ -208,6 +212,7 @@ class ColdStart:
     measurementDuration = 30
     runs = 2
     notFirstStart = ""
+    forArgs = "Cs"
 
 
 class Foreground:
@@ -217,6 +222,7 @@ class Foreground:
     testClass = "Foreground"
     measurementDuration = 500
     runs = 1
+    forArgs = "Fg"
 
 
 class Background:
@@ -226,6 +232,7 @@ class Background:
     testClass = "Background"
     measurementDuration = 500
     runs = 1
+    forArgs = "Bg"
 
 
 class UlrOpen:
@@ -236,6 +243,7 @@ class UlrOpen:
     measurementDuration = 30
     runs = 2
     clearBrowser = ""
+    forArgs = "Uo"
 
 
 class TenSitesForeground:
@@ -246,6 +254,7 @@ class TenSitesForeground:
     measurementDuration = 500
     runs = 1
     clearBrowser = ""
+    forArgs = "Tsf"
 
 
 class TenSitesBackground:
@@ -256,6 +265,7 @@ class TenSitesBackground:
     measurementDuration = 500
     runs = 1
     clearBrowser = ""
+    forArgs = "Tsb"
 
 
 class VideoPlay:
@@ -266,6 +276,7 @@ class VideoPlay:
     measurementDuration = 500
     runs = 1
     enableRotation = ""
+    forArgs = "Vp"
 
 
 class Scroll:
@@ -276,6 +287,7 @@ class Scroll:
     measurementDuration = 550
     runs = 1
     clearBrowser = ""
+    forArgs = "Sc"
 
 
 class MusicPlay:
@@ -286,6 +298,7 @@ class MusicPlay:
     measurementDuration = 550
     runs = 1
     clearBrowser = ""
+    forArgs = "Mp"
 
 
 class HundredSitesForeground:
@@ -296,7 +309,11 @@ class HundredSitesForeground:
     measurementDuration = 500
     runs = 1
     clearBrowser = ""
+    forArgs = "Hsf"
 
+broList = [YandexBrowser, Chrome, Opera]
+testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenSitesBackground, VideoPlay, Scroll,
+            MusicPlay, HundredSitesForeground]
 
 homeDir =  os.getcwd()
 xlsxFilename = homeDir + "/" + YandexBrowser.browserName + ".xlsx"
@@ -308,21 +325,14 @@ workbook = load_workbook(xlsxFilename)
 worksheet = workbook.active
 alignment = Alignment(horizontal='right')
 
-broList = [YandexBrowser, Chrome, Opera]
-testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenSitesBackground, VideoPlay, Scroll,
-            MusicPlay, HundredSitesForeground]
-
 bNumber = 1
 for browserToChoose in broList:
     worksheet["A" + str(broList.index(browserToChoose) + 2)] = browserToChoose.browserName
     worksheet.column_dimensions["A"].width = max(len(x.browserName) for x in broList)
     worksheet["A" + str(broList.index(browserToChoose) + 2)].alignment = alignment
-    print str(bNumber) + ". " + browserToChoose.browserName
     bNumber = bNumber + 1
-browserType = input("Choose browser (0 for all): ")
 workbook.save(xlsxFilename)
 
-print ""
 columnName = dict()
 
 tNumber = 1
@@ -331,19 +341,26 @@ for testToChoose in testList:
     worksheet[cellNumber] = testToChoose.testClass
     worksheet[cellNumber].alignment = alignment
     worksheet.column_dimensions[str(list(string.ascii_uppercase)[tNumber])].width = len(testToChoose.testClass) + 2
-    print str(tNumber) + ". " + testToChoose.testClass
     tNumber = tNumber + 1
-testType = input("Choose test (0 for all): ")
 workbook.save(xlsxFilename)
 
-if browserType == 0:
-    bro = broList
-else:
-    bro.append(broList[browserType - 1])
 
-if testType == 0:
-    test = testList
+if (len(sys.argv)) == 3:
+    for i in broList:
+        if i.forArgs in sys.argv[1]:
+            bro.append(i)
+    for i in testList:
+        if i.forArgs in sys.argv[2]:
+            test.append(i)
 else:
-    test.append(testList[testType - 1])
+    print "Usage:\n  asd.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
+    print "Browser list:"
+    for browser in broList:
+        print browser.forArgs + " - " + browser.browserName
+    print "\nTest list:"
+    for n in testList:
+        print n.forArgs + " - " + n.testClass
+    sys.exit()
+
 
 RunTests(broList, bro, testList, test)

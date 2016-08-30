@@ -2,6 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/pmgetup.py" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/ru/batterytest/123/yabro/MusicPlay.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ru/batterytest/atest/MusicPlay.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ru/batterytest/atest/Scroll.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/ru/batterytest/atest/VideoPlay.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ru/batterytest/chrome/MusicPlay.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ru/batterytest/chrome/VideoPlay.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ru/batterytest/opera/MusicPlay.java" charset="UTF-8" />

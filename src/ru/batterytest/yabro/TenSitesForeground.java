@@ -18,6 +18,7 @@ public class TenSitesForeground extends UiAutomatorTestCase {
 
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
+        step.precondition();
         step.browserStart(3000);
         step.openUrlFromSentry("www.worldoftanks.ru");
         sleep(10000);

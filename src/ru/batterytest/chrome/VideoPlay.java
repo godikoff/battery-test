@@ -6,6 +6,7 @@ import ru.batterytest.steps.ChromeSteps;
 public class VideoPlay extends UiAutomatorTestCase {
     public void test() throws Exception {
         ChromeSteps step = new ChromeSteps();
+        step.precondition();
         step.browserStart(60000);
         step.openUrlInCurrentTab("http://www.youtube.com/watch?v=ZtaKWt26dNs");
         sleep(10000);

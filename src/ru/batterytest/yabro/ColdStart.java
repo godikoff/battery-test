@@ -6,6 +6,7 @@ import ru.batterytest.steps.YaBroSteps;
 public class ColdStart extends UiAutomatorTestCase {
     public void test() throws Exception {
         YaBroSteps step = new YaBroSteps();
+        step.precondition();
         sleep(5000);
         step.logStart();
         step.browserStart(3000);

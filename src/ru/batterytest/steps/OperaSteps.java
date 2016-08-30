@@ -1,5 +1,6 @@
 package ru.batterytest.steps;
 
+import android.os.RemoteException;
 import android.util.Log;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
@@ -9,6 +10,12 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 
 public class OperaSteps extends UiAutomatorTestCase {
+
+    public void precondition() throws RemoteException {
+        UiDevice.getInstance().pressHome();
+        UiDevice.getInstance().setOrientationNatural();
+    }
+
 
     //Opera start (time for sleep after start)
     public void browserStart(int s) throws UiObjectNotFoundException {

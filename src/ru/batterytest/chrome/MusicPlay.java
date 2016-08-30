@@ -6,6 +6,7 @@ import ru.batterytest.steps.ChromeSteps;
 public class MusicPlay extends UiAutomatorTestCase {
     public void test() throws Exception {
         ChromeSteps step = new ChromeSteps();
+        step.precondition();
         step.browserStart(60000);
         step.openUrlInCurrentTab("https://m.vk.com");
         sleep(10000);
