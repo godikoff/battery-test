@@ -25,7 +25,7 @@ def RunMonitor(measurementDuration):
     os.system(
         "PowerToolCmd.exe -trigger=ETY100D" + measurementDuration + "A -vout=" + voltage + " -USB=auto -keeppower -savefile=battery_test.pt4 -noexitwait")
     os.chdir(homeDir)
-    shutil.copy("C:/Program Files (x86)/Monsoon Solutions Inc/Power Monitor/battery_test.scv", "battery_test.csv")
+    shutil.copy("C:/Program Files (x86)/Monsoon Solutions Inc/Power Monitor/battery_test.csv", "battery_test.csv")
     print "stop measurement at " + strftime("%m-%d %H:%M:%S")
 
 
