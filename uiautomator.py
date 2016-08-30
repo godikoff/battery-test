@@ -268,18 +268,21 @@ class YandexBrowser:
     package = "com.yandex.browser"
     browserName = "Yandex Browser " + getBroVersion(package)
     testBrowser = "yabro"
+    forArgs = "Y"
 
 
 class Chrome:
     package = "com.android.chrome"
     browserName = "Chrome " + getBroVersion(package)
     testBrowser = "chrome"
+    forArgs = "B"
 
 
 class Opera:
     package = "com.opera.browser"
     browserName = "Opera " + getBroVersion(package)
     testBrowser = "opera"
+    forArgs = "O"
 
 
 class ColdStart:
@@ -287,18 +290,21 @@ class ColdStart:
     measurementDuration = 30
     runs = 10
     notFirstStart = ""
+    forArgs = "Cs"
 
 
 class Foreground:
     testClass = "Foreground"
     measurementDuration = 500
     runs = 1
+    forArgs = "Fg"
 
 
 class Background:
     testClass = "Background"
     measurementDuration = 500
     runs = 1
+    forArgs = "Bg"
 
 
 class UlrOpen:
@@ -306,6 +312,7 @@ class UlrOpen:
     measurementDuration = 30
     runs = 10
     clearBrowser = ""
+    forArgs = "Uo"
 
 
 class TenSitesForeground:
@@ -313,6 +320,7 @@ class TenSitesForeground:
     measurementDuration = 500
     runs = 1
     clearBrowser = ""
+    forArgs = "Tsf"
 
 
 class TenSitesBackground:
@@ -320,6 +328,7 @@ class TenSitesBackground:
     measurementDuration = 500
     runs = 1
     clearBrowser = ""
+    forArgs = "Tsb"
 
 
 class VideoPlay:
@@ -327,6 +336,7 @@ class VideoPlay:
     measurementDuration = 500
     runs = 1
     enableRotation = ""
+    forArgs = "Vp"
 
 
 class Scroll:
@@ -334,6 +344,7 @@ class Scroll:
     measurementDuration = 550
     runs = 1
     clearBrowser = ""
+    forArgs = "Sc"
 
 
 class MusicPlay:
@@ -341,6 +352,7 @@ class MusicPlay:
     measurementDuration = 550
     runs = 1
     clearBrowser = ""
+    forArgs = "Mp"
 
 
 class HundredSitesForeground:
@@ -348,6 +360,7 @@ class HundredSitesForeground:
     measurementDuration = 500
     runs = 1
     clearBrowser = ""
+    forArgs = "Hsf"
 
 
 homeDir =  os.getcwd()
