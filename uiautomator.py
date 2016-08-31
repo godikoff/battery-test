@@ -276,7 +276,7 @@ class Chrome:
     package = "com.android.chrome"
     browserName = "Chrome " + getBroVersion(package)
     testBrowser = "chrome"
-    forArgs = "B"
+    forArgs = "C"
 
 
 class Opera:
