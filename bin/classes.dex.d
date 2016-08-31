@@ -1,14 +1,4 @@
 C:\appium\battery-test\bin\classes.dex : \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\Background.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\ColdStart.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\Foreground.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\HundredSitesForeground.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\MusicPlay.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\Scroll.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\TenSitesBackground.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\TenSitesForeground.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\UrlOpen.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\atest\VideoPlay.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Foreground.class \

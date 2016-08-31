@@ -45,7 +45,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
     //menu in omni tap
     public void menuButtonTap() throws UiObjectNotFoundException {
         UiObject menuButton = new UiObject(new UiSelector().resourceId("com.android.chrome:id/menu_button"));
-        if (!menuButton.exists()) {
+        if (menuButton.exists()) {
             menuButton.click();
         }
         else{
@@ -56,7 +56,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
     //omnibox tap
     public void omniboxTap() throws UiObjectNotFoundException {
         UiObject omnibox = new UiObject(new UiSelector().resourceId("com.android.chrome:id/search_box"));
-        if (!omnibox.exists()) {
+        if (omnibox.exists()) {
             omnibox.click();
         }
         else{
@@ -67,7 +67,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
     //omnibox in tab tap
     public void omniboxInTabTap() throws UiObjectNotFoundException {
         UiObject omnibox = new UiObject(new UiSelector().resourceId("com.android.chrome:id/url_bar"));
-        if (!omnibox.exists()) {
+        if (omnibox.exists()) {
             omnibox.click();
         }
         else{
@@ -78,7 +78,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
     //omnibox text input
     public void omniboxInput(String url) throws UiObjectNotFoundException {
         UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.android.chrome:id/url_bar"));
-        if (!omniboxTextField.exists()) {
+        if (omniboxTextField.exists()) {
             omniboxTextField.setText(url);
         }
         else{
@@ -89,7 +89,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
     //tap on "new tab" button
     public void menuNewTabButtonTap() throws UiObjectNotFoundException {
         UiObject menuNewTab = new UiObject(new UiSelector().resourceId("com.android.chrome:id/menu_item_text").description("Новая вкладка"));
-        if (!menuNewTab.exists()) {
+        if (menuNewTab.exists()) {
             menuNewTab.click();
         }
         else{

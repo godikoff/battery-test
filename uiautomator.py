@@ -131,6 +131,7 @@ def RunTests(broList, browser, testList, test):
         for testToRun in test:
             testNumber = 1
             allTestsCurrentAvg = []
+            print testToRun.testClass + " started"
 
             for browsersToClear in broList:
                 print browsersToClear.browserName + " clearing..."
