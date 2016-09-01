@@ -162,8 +162,8 @@ public class OperaSteps extends UiAutomatorTestCase {
         sleep(2000);
         UiObject videoContainer = new UiObject(new UiSelector().resourceId("koya_elem_0_11"));
         UiDevice.getInstance().click((int)((videoContainer.getBounds().right) * (90.0f / 100.0f)), (int) ((videoContainer.getBounds().bottom) * (95.0f / 100.0f)));
-        sleep(2000);
         UiDevice.getInstance().setOrientationLeft();
+        sleep(2000);
         waitForWebView();
     }
 
