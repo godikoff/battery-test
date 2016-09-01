@@ -8,7 +8,7 @@ public class atest extends UiAutomatorTestCase {
         OperaSteps step = new OperaSteps();
         step.precondition();
         step.browserStart(3000);
-        step.openUrlInCurrentTab("http://www.youtube.com/watch?v=ZtaKWt26dNs");
+        step.openUrlInCurrentTab("http://www.youtube.com/watch_popup?v=ZtaKWt26dNs");
         sleep(2000);
         step.dialogButtonNegativeClick();
         step.youtubeVideoPlayFullscreen();
