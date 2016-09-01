@@ -157,10 +157,12 @@ public class OperaSteps extends UiAutomatorTestCase {
     }
 
     public void youtubeVideoPlayFullscreen() throws Exception{
-        UiObject playButton = new UiObject(new UiSelector().className("android.widget.Button").description("Посмотреть ✔ Space Exploration - \"Our Universe\" (Episode 01) [2016 Documentary]"));
+        UiObject playButton = new UiObject(new UiSelector().className("android.widget.Button").description("Смотреть"));
         playButton.click();
-        UiObject videoContainer = new UiObject(new UiSelector().className("android.webkit.WebView"));
-        UiDevice.getInstance().click((int) ((videoContainer.getBounds().right) * (90.0f / 100.0f)), (int) ((videoContainer.getBounds().bottom) * (95.0f / 100.0f)));
+        sleep(2000);
+        UiObject videoContainer = new UiObject(new UiSelector().resourceId("koya_elem_0_11"));
+        UiDevice.getInstance().click((int)((videoContainer.getBounds().right) * (90.0f / 100.0f)), (int) ((videoContainer.getBounds().bottom) * (95.0f / 100.0f)));
+        sleep(2000);
         UiDevice.getInstance().setOrientationLeft();
         waitForWebView();
     }

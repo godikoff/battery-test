@@ -10,6 +10,7 @@ C:\appium\battery-test\bin\classes\ru\batterytest\chrome\TenSitesForeground.clas
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\UrlOpen.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\VideoPlay.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\Control.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\opera\atest.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\Foreground.class \
