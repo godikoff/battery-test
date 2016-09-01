@@ -8,7 +8,7 @@ public class VideoPlay extends UiAutomatorTestCase {
         OperaSteps step = new OperaSteps();
         step.precondition();
         step.browserStart(60000);
-        step.openUrlInCurrentTab("http://www.youtube.com/watch?v=ZtaKWt26dNs");
+        step.openUrlInCurrentTab("http://www.youtube.com/watch_popup?v=ZtaKWt26dNs");
         sleep(10000);
         step.dialogButtonNegativeClick();
         step.youtubeVideoPlayFullscreen();

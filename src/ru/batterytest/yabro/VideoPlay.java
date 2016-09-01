@@ -8,7 +8,7 @@ public class VideoPlay extends UiAutomatorTestCase {
         YaBroSteps step = new YaBroSteps();
         step.precondition();
         step.browserStart(60000);
-        step.openUrlFromSentry("http://www.youtube.com/watch_popup?v=ZtaKWt26dNs");
+        step.openUrlFromSentry("http://www.youtube.com/watch?v=ZtaKWt26dNs");
         sleep(10000);
         step.youtubeVideoPlayFullscreen();
         sleep(10000);
