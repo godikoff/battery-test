@@ -21,7 +21,7 @@ public class TenSitesBackground extends UiAutomatorTestCase {
         ChromeSteps step = new ChromeSteps();
         step.precondition();
         step.browserStart(3000);
-        step.openUrlInCurrentTab("www.worldoftanks.ru");
+        step.operUrlFirstTab("www.worldoftanks.ru");
         sleep(10000);
 
         for (int i=0; i<9; i++){

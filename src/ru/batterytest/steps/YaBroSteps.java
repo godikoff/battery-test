@@ -109,7 +109,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
     }
 
     //open url from Sentry
-    public void openUrlFromSentry(String url) throws UiObjectNotFoundException {
+    public void openUrlFirstTab(String url) throws UiObjectNotFoundException {
         omniboxTap();
         omniboxInput(url);
         UiDevice.getInstance().pressEnter();

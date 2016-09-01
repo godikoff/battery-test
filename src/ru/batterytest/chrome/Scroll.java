@@ -9,7 +9,7 @@ public class Scroll extends UiAutomatorTestCase {
         ChromeSteps step = new ChromeSteps();
         step.precondition();
         step.browserStart(30000);
-        step.openUrlInCurrentTab("www.bash.im");
+        step.operUrlFirstTab("www.bash.im");
         sleep(30000);
         step.scrollDown(5);
         sleep(5000);

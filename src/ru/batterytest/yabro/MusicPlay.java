@@ -8,7 +8,7 @@ public class MusicPlay extends UiAutomatorTestCase {
         YaBroSteps step = new YaBroSteps();
         step.precondition();
         step.browserStart(60000);
-        step.openUrlFromSentry("https://m.vk.com");
+        step.openUrlFirstTab("https://m.vk.com");
         sleep(10000);
         step.vkLogin();
         sleep(10000);

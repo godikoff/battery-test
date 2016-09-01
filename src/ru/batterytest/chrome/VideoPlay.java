@@ -8,7 +8,7 @@ public class VideoPlay extends UiAutomatorTestCase {
         ChromeSteps step = new ChromeSteps();
         step.precondition();
         step.browserStart(60000);
-        step.openUrlInCurrentTab("http://www.youtube.com/watch?v=ZtaKWt26dNs");
+        step.operUrlFirstTab("http://www.youtube.com/watch?v=ZtaKWt26dNs");
         sleep(10000);
         step.youtubeVideoPlayFullscreen();
         sleep(10000);

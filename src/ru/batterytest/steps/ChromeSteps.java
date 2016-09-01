@@ -107,9 +107,17 @@ public class ChromeSteps extends UiAutomatorTestCase {
         waitForWebView();
     }
 
-    //open url in current tab
-    public void openUrlInCurrentTab(String url) throws UiObjectNotFoundException {
+    //open url first tab
+    public void operUrlFirstTab(String url) throws UiObjectNotFoundException {
         omniboxTap();
+        omniboxInput(url);
+        UiDevice.getInstance().pressEnter();
+        waitForWebView();
+    }
+
+    //open url in current tab on tab
+    public void openUrlInCurrentTab(String url) throws UiObjectNotFoundException {
+        omniboxInTabTap();
         omniboxInput(url);
         UiDevice.getInstance().pressEnter();
         waitForWebView();

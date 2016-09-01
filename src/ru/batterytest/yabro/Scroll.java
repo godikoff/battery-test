@@ -9,7 +9,7 @@ public class Scroll extends UiAutomatorTestCase {
         YaBroSteps step = new YaBroSteps();
         step.precondition();
         step.browserStart(30000);
-        step.openUrlFromSentry("www.bash.im");
+        step.openUrlFirstTab("www.bash.im");
         sleep(30000);
         step.scrollDown(5);
         sleep(5000);

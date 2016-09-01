@@ -8,7 +8,7 @@ public class MusicPlay extends UiAutomatorTestCase {
         ChromeSteps step = new ChromeSteps();
         step.precondition();
         step.browserStart(60000);
-        step.openUrlInCurrentTab("https://m.vk.com");
+        step.operUrlFirstTab("https://m.vk.com");
         sleep(10000);
         step.vkLogin();
         sleep(10000);

@@ -20,7 +20,7 @@ public class TenSitesForeground extends UiAutomatorTestCase {
         YaBroSteps step = new YaBroSteps();
         step.precondition();
         step.browserStart(3000);
-        step.openUrlFromSentry("www.worldoftanks.ru");
+        step.openUrlFirstTab("www.worldoftanks.ru");
         sleep(10000);
 
         for (int i=0; i<9; i++){
