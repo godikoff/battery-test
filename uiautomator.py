@@ -129,6 +129,13 @@ def RunTests(broList, browser, testList, test):
     for browserToRun in browser:
 
         for testToRun in test:
+            print "rebooting device..."
+            os.system("adb reboot")
+            time.sleep(60)
+            os.system(
+                "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.UnlockDevice")
+            time.sleep(300)
+
             testNumber = 1
             allTestsCurrentAvg = []
             print testToRun.testClass + " started"

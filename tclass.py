@@ -26,4 +26,4 @@ os.system("ant build")
 os.system("adb push bin/battery-test.jar /data/local/tmp/")
 
 os.system(
-    "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.opera.atest")
+    "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.UnlockDevice")

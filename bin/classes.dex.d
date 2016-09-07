@@ -24,6 +24,7 @@ C:\appium\battery-test\bin\classes\ru\batterytest\opera\VideoPlay.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\ChromeSteps.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\OperaSteps.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\YaBroSteps.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\UnlockDevice.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Foreground.class \
