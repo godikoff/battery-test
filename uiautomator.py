@@ -130,8 +130,12 @@ def LogFailFinder():
 
 def RunTests(broList, browser, testList, test):
     for browserToRun in browser:
+        print browserToRun.browserName  + " tests started"
+        logging.debug( u"" + browserToRun.browserName  + " tests started")
 
         for testToRun in test:
+            print browserToRun.browserName + " " + testToRun.testClass  + " started"
+            logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass  + " started")
             print "rebooting device..."
             logging.debug( u"rebooting device...")
 
@@ -259,9 +263,11 @@ def RunTests(broList, browser, testList, test):
             except:
                 print "full test result printing error\n"
                 logging.debug( u"full test result printing error")
-            result.close()
             time.sleep(5)
-
+            print browserToRun.browserName + " " + testToRun.testClass  + " finished"
+            logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass  + " finished")
+        print browserToRun.browserName  + " tests finished"
+        logging.debug( u"" + browserToRun.browserName  + " tests finished")
 
 bro = []
 test = []
@@ -383,6 +389,7 @@ testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenS
 bNumber = 1
 for browserToChoose in broList:
     worksheet["A" + str(broList.index(browserToChoose) + 2)] = browserToChoose.browserName
+    logging.debug( u"" + browserToChoose.browserNam)
     worksheet.column_dimensions["A"].width = max(len(x.browserName) for x in broList)
     worksheet["A" + str(broList.index(browserToChoose) + 2)].alignment = alignment
     bNumber = bNumber + 1
@@ -395,6 +402,7 @@ tNumber = 1
 for testToChoose in testList:
     cellNumber = str(list(string.ascii_uppercase)[tNumber]) + "1"
     worksheet[cellNumber] = testToChoose.testClass
+    logging.debug( u"" + testToChoose.testClass)
     worksheet[cellNumber].alignment = alignment
     worksheet.column_dimensions[str(list(string.ascii_uppercase)[tNumber])].width = len(testToChoose.testClass) + 2
     tNumber = tNumber + 1
