@@ -9,6 +9,7 @@ import string
 from time import strftime
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment
+from shutil import copyfile
 
 
 # Don't forget to:
@@ -105,6 +106,12 @@ def RunTests(broList, browser, testList, test):
                                 print "single result writing in file error"
                     except:
                         print "battery_test.csv reading error\n"
+
+                    testDir = allTestsDir + '/' + browserToRun.browserName + '/' + testToRun.testClass
+                    if not os.path.isdir(testDir):
+                        os.makedirs(testDir)
+                    copyfile('battery_test.csv', allTestsDir + "/" + browserToRun.browserName + "/" + testToRun.testClass + "/" + testToRun.testClass + "_" + str(testNumber) + "_data.csv")
+                    os.system('adb logcat -d > ' + '"' + allTestsDir + '/' + browserToRun.browserName + '/' + testToRun.testClass + '/' + testToRun.testClass + '_' + str(testNumber) + '_log.txt"')
 
                     testNumber = testNumber + 1
                     allTestsCurrentAvg.append(sum(currentList) / len(currentList))
@@ -315,9 +322,29 @@ broList = [YandexBrowser, Chrome, Opera]
 testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenSitesBackground, VideoPlay, Scroll,
             MusicPlay, HundredSitesForeground]
 
+if (len(sys.argv)) == 3:
+    for i in broList:
+        if i.forArgs in sys.argv[1]:
+            bro.append(i)
+    for i in testList:
+        if i.forArgs in sys.argv[2]:
+            test.append(i)
+else:
+    print "Usage:\n  asd.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
+    print "Browser list:"
+    for browser in broList:
+        print browser.forArgs + " - " + browser.browserName
+    print "\nTest list:"
+    for n in testList:
+        print n.forArgs + " - " + n.testClass
+    sys.exit()
+
+allTestsDir = strftime("%y.%m.%d %H-%M-%S")
+os.mkdir(allTestsDir)
 homeDir =  os.getcwd()
-xlsxFilename = homeDir + "/" + YandexBrowser.browserName + ".xlsx"
-txtFilename = homeDir + "/" + YandexBrowser.browserName + ".txt"
+xlsxFilename = homeDir + "/" + allTestsDir + "/" + "result_table.xlsx"
+txtFilename = homeDir + "/" + allTestsDir + "/" + YandexBrowser.browserName + ".txt"
+
 if not os.path.isfile(xlsxFilename):
     workbookTmp = Workbook()
     workbookTmp.save(xlsxFilename)
@@ -343,24 +370,5 @@ for testToChoose in testList:
     worksheet.column_dimensions[str(list(string.ascii_uppercase)[tNumber])].width = len(testToChoose.testClass) + 2
     tNumber = tNumber + 1
 workbook.save(xlsxFilename)
-
-
-if (len(sys.argv)) == 3:
-    for i in broList:
-        if i.forArgs in sys.argv[1]:
-            bro.append(i)
-    for i in testList:
-        if i.forArgs in sys.argv[2]:
-            test.append(i)
-else:
-    print "Usage:\n  asd.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
-    print "Browser list:"
-    for browser in broList:
-        print browser.forArgs + " - " + browser.browserName
-    print "\nTest list:"
-    for n in testList:
-        print n.forArgs + " - " + n.testClass
-    sys.exit()
-
 
 RunTests(broList, bro, testList, test)

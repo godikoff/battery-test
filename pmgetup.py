@@ -1,4 +1,5 @@
 import os
+from time import strftime
 
 voltage = "4.2"
 

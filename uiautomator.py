@@ -216,6 +216,13 @@ def RunTests(broList, browser, testList, test):
                         print "battery_test.csv reading error\n"
                         logging.debug( u"battery_test.csv reading error")
 
+                    testDir = allTestsDir + '/' + browserToRun.browserName + '/' + testToRun.testClass
+                    if not os.path.isdir(testDir):
+                        os.makedirs(testDir)
+                    shutil.copyfile('battery_test.csv', allTestsDir + "/" + browserToRun.browserName + "/" + testToRun.testClass + "/" + testToRun.testClass + "_" + str(testNumber) + "_data.csv")
+                    os.system('adb logcat -d > ' + '"' + allTestsDir + '/' + browserToRun.browserName + '/' + testToRun.testClass + '/' + testToRun.testClass + '_' + str(testNumber) + '_log.txt"')
+
+
                     testNumber = testNumber + 1
                     allTestsCurrentAvg.append(sum(currentList) / len(currentList))
                 else:
@@ -264,6 +271,7 @@ def RunTests(broList, browser, testList, test):
                 print "full test result printing error\n"
                 logging.debug( u"full test result printing error")
             time.sleep(5)
+            os.system('adb bugreport > ' + '"' + allTestsDir + '/' + browserToRun.browserName + '/' + testToRun.testClass + '/' + testToRun.testClass + '_bugreport.txt"')
             print browserToRun.browserName + " " + testToRun.testClass  + " finished"
             logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass  + " finished")
         print browserToRun.browserName  + " tests finished"
@@ -371,20 +379,42 @@ class HundredSitesForeground:
     clearBrowser = ""
     forArgs = "Hsf"
 
+
+broList = [YandexBrowser, Chrome, Opera]
+testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenSitesBackground, VideoPlay, Scroll,
+            MusicPlay, HundredSitesForeground]
+
+if (len(sys.argv)) == 3:
+    for i in broList:
+        if i.forArgs in sys.argv[1]:
+            bro.append(i)
+    for i in testList:
+        if i.forArgs in sys.argv[2]:
+            test.append(i)
+else:
+    print "Usage:\n  asd.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
+    print "Browser list:"
+    for browser in broList:
+        print browser.forArgs + " - " + browser.browserName
+    print "\nTest list:"
+    for n in testList:
+        print n.forArgs + " - " + n.testClass
+    sys.exit()
+
+
 logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = u'uiautomator.log')
 
-homeDir = os.getcwd()
-xlsxFilename = homeDir + "/" + YandexBrowser.browserName + ".xlsx"
+allTestsDir = strftime("%y.%m.%d %H-%M-%S")
+os.mkdir(allTestsDir)
+homeDir =  os.getcwd()
+xlsxFilename = homeDir + "/" + allTestsDir + "/" + "result_table.xlsx"
+
 if not os.path.isfile(xlsxFilename):
     workbookTmp = Workbook()
     workbookTmp.save(xlsxFilename)
 workbook = load_workbook(xlsxFilename)
 worksheet = workbook.active
 alignment = Alignment(horizontal='right')
-
-broList = [YandexBrowser, Chrome, Opera]
-testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenSitesBackground, VideoPlay, Scroll,
-            MusicPlay, HundredSitesForeground]
 
 bNumber = 1
 for browserToChoose in broList:
@@ -407,25 +437,6 @@ for testToChoose in testList:
     worksheet.column_dimensions[str(list(string.ascii_uppercase)[tNumber])].width = len(testToChoose.testClass) + 2
     tNumber = tNumber + 1
 workbook.save(xlsxFilename)
-
-
-if (len(sys.argv)) == 3:
-    for i in broList:
-        if i.forArgs in sys.argv[1]:
-            bro.append(i)
-    for i in testList:
-        if i.forArgs in sys.argv[2]:
-            test.append(i)
-else:
-    print "Usage:\n  asd.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
-    print "Browser list:"
-    for browser in broList:
-        print browser.forArgs + " - " + browser.browserName
-    print "\nTest list:"
-    for n in testList:
-        print n.forArgs + " - " + n.testClass
-    sys.exit()
-
 
 # Uncomment block below to rebuild .jar
 #if os.path.isfile("build.xml"):

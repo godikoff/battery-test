@@ -16,24 +16,34 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="uiautomator.py" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/uiautomator.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="-3.5590909">
+                    <caret line="265" column="124" selection-start-line="265" selection-start-column="124" selection-end-line="265" selection-end-column="124" />
+                    <folding>
+                      <element signature="e#0#9#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="battery-test" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="uiautomator.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/uiautomator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38034865">
-              <caret line="393" column="82" selection-start-line="393" selection-start-column="82" selection-end-line="393" selection-end-column="82" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UnlockDevice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/batterytest/UnlockDevice.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,12 +68,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="asd.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="asd.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/asd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-              <folding />
+            <state vertical-scroll-proportion="0.48939395">
+              <caret line="334" column="27" selection-start-line="334" selection-start-column="27" selection-end-line="334" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,8 +94,10 @@
         <entry file="file://$PROJECT_DIR$/pmgetup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-              <folding />
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/tclass.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <caret line="20" column="24" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -195,9 +209,9 @@
         <option value="$PROJECT_DIR$/src/ru/batterytest/opera/atest.java" />
         <option value="$PROJECT_DIR$/src/ru/batterytest/yabro/UnlockDevice.java" />
         <option value="$PROJECT_DIR$/src/ru/batterytest/UnlockDevice.java" />
-        <option value="$PROJECT_DIR$/asd.py" />
-        <option value="$PROJECT_DIR$/pmgetup.py" />
         <option value="$PROJECT_DIR$/tclass.py" />
+        <option value="$PROJECT_DIR$/pmgetup.py" />
+        <option value="$PROJECT_DIR$/asd.py" />
         <option value="$PROJECT_DIR$/uiautomator.py" />
       </list>
     </option>
@@ -428,7 +442,7 @@
       <recent name="ru.yandex.batterytest" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.tclass">
+  <component name="RunManager" selected="Python.pmgetup">
     <configuration default="false" name="pmgetup" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -810,9 +824,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.tclass" />
-        <item index="1" class="java.lang.String" itemvalue="Python.uiautomator" />
-        <item index="2" class="java.lang.String" itemvalue="Python.pmgetup" />
+        <item index="0" class="java.lang.String" itemvalue="Python.pmgetup" />
+        <item index="1" class="java.lang.String" itemvalue="Python.tclass" />
+        <item index="2" class="java.lang.String" itemvalue="Python.uiautomator" />
         <item index="3" class="java.lang.String" itemvalue="Python.uiautomator_old" />
         <item index="4" class="java.lang.String" itemvalue="Python.test" />
       </list>
@@ -1218,11 +1232,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asd.py">
+    <entry file="file://$PROJECT_DIR$/pmgetup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
-          <folding />
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1234,26 +1250,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgetup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tclass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/uiautomator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38034865">
-          <caret line="393" column="82" selection-start-line="393" selection-start-column="82" selection-end-line="393" selection-end-column="82" />
+        <state vertical-scroll-proportion="-3.5590909">
+          <caret line="265" column="124" selection-start-line="265" selection-start-column="124" selection-end-line="265" selection-end-column="124" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48939395">
+          <caret line="334" column="27" selection-start-line="334" selection-start-column="27" selection-end-line="334" selection-end-column="27" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
