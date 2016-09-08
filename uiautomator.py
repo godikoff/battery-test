@@ -7,6 +7,7 @@ import subprocess
 import threading
 import Queue
 import string
+import logging
 from time import strftime
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment
@@ -22,11 +23,13 @@ voltage = "4.2"
 def RunMonitor(measurementDuration):
     os.chdir("C:/Program Files (x86)/Monsoon Solutions Inc/Power Monitor")
     print "start measurement at " + strftime("%m-%d %H:%M:%S")
+    logging.debug( u"start measurement")
     os.system(
         "PowerToolCmd.exe -trigger=ETY100D" + measurementDuration + "A -vout=" + voltage + " -USB=auto -keeppower -savefile=battery_test.pt4 -noexitwait")
     os.chdir(homeDir)
     shutil.copy("C:/Program Files (x86)/Monsoon Solutions Inc/Power Monitor/battery_test.csv", "battery_test.csv")
     print "stop measurement at " + strftime("%m-%d %H:%M:%S")
+    logging.debug( u"stop measurement")
 
 
 def getBroVersion(packageName):
@@ -130,6 +133,8 @@ def RunTests(broList, browser, testList, test):
 
         for testToRun in test:
             print "rebooting device..."
+            logging.debug( u"rebooting device...")
+
             os.system("adb reboot")
             time.sleep(60)
             os.system(
@@ -139,32 +144,39 @@ def RunTests(broList, browser, testList, test):
             testNumber = 1
             allTestsCurrentAvg = []
             print testToRun.testClass + " started"
+            logging.debug( u""+testToRun.testClass + " started")
 
             for browsersToClear in broList:
                 print browsersToClear.browserName + " clearing..."
+                logging.debug( u"" + browsersToClear.browserName + " clearing...")
                 os.system("adb shell pm clear " + browsersToClear.package)
                 time.sleep(1)
 
             if hasattr(testToRun, 'notFirstStart'):
                 print "First start..."
+                logging.debug( u"First start...")
                 os.system(
                     "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + ".ColdStart")
                 print "...please wait..."
+                logging.debug( u"...please wait...")
                 time.sleep(80)
 
             if hasattr(testToRun, 'enableRotation'):
                 os.system(
                     "adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:1")
                 print "Screen rotation enabled!"
+                logging.debug( u"Screen rotation enabled!")
 
             retryCount = 0
             while testNumber < testToRun.runs + 1:
 
                 os.system("adb shell am force-stop " + browserToRun.package)
                 print browserToRun.browserName + " stopped!"
+                logging.debug( u"" + browserToRun.browserName + " stopped!")
 
                 if hasattr(testToRun, 'clearBrowser'):
                     print browserToRun.browserName + " clearing..."
+                    logging.debug( u"" + browserToRun.browserName + " clearing...")
                     os.system("adb shell pm clear " + browserToRun.package)
 
                 # os.system("adb kill-server")
@@ -190,81 +202,64 @@ def RunTests(broList, browser, testList, test):
                                 print "\n" + strftime(
                                     "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
                                     testNumber) + ": " + str(sum(currentList) / len(currentList)) + "\n"
+                                logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass + " " + str(
+                                    testNumber) + ": " + str(sum(currentList) / len(currentList)))
                             except:
                                 print "single result printing error"
+                                logging.debug( u"single result printing error")
 
-                            try:
-                                singleResult = open(txtFilename, 'a')
-                                singleResult.write(strftime(
-                                    "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
-                                    testNumber) + ": " + str(sum(currentList) / len(currentList)) + "\n")
-                                singleResult.close()
-                            except:
-                                print "single result writing in file error"
                     except:
                         print "battery_test.csv reading error\n"
+                        logging.debug( u"battery_test.csv reading error")
 
                     testNumber = testNumber + 1
                     allTestsCurrentAvg.append(sum(currentList) / len(currentList))
                 else:
                     retryCount = retryCount + 1
                     try:
-                        with open(txtFilename, 'a') as failResult:
-                            try:
-                                print strftime(
-                                    "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
-                                    testNumber) + ": failed! Count = " + str(
-                                    retryCount) + "\n" + findFailInLog.strip() + "\n"
-                            except:
-                                print "fail result printing error\n"
-                            try:
-                                failResult.write(strftime(
-                                    "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
-                                    testNumber) + ": failed! Count = " + str(
-                                    retryCount) + "\n" + findFailInLog.strip() + "\n")
-                                failResult.close()
-                            except:
-                                print "fail result writing in file error\n"
-                        if retryCount == 2:
-                            testNumber = testNumber + 1
-                            retryCount = 0
-                            continue
+                        print strftime(
+                            "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
+                            testNumber) + ": failed! Count = " + str(
+                            retryCount) + "\n" + findFailInLog.strip() + "\n"
+                        logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass + " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip())
                     except:
-                        print "battery_test_result.txt reading error\n"
+                        print "fail result printing error\n"
+                        logging.debug( u"fail result printing error")
+                    if retryCount == 2:
+                        testNumber = testNumber + 1
+                        retryCount = 0
+                        continue
 
                 time.sleep(5)
 
             if testToRun.runs > 9 and testNumber > 5:
-                allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
-                allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
-                allTestsCurrentAvg.remove(min(allTestsCurrentAvg))
-                allTestsCurrentAvg.remove(min(allTestsCurrentAvg))
+                for i in list(range(int(float(testToRun.runs)/10.0*2.5))):
+                    allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
+                    allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
 
             if hasattr(testToRun, 'enableRotation'):
                 os.system(
                     "adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:0")
                 print "Screen rotation disabled!"
+                logging.debug( u"Screen rotation disabled!")
 
             try:
-                result = open(txtFilename, 'a')
-                try:
-                    result.write(strftime(
-                        "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(
-                        sum(allTestsCurrentAvg) / len(allTestsCurrentAvg)) + "\n")
-                    worksheet[str(list(string.ascii_uppercase)[testList.index(testToRun) + 1]) + str(
-                        broList.index(browserToRun) + 2)] = sum(allTestsCurrentAvg) / len(allTestsCurrentAvg)
-                    workbook.save(xlsxFilename)
-                except:
-                    print "full test result writing error\n"
-                try:
-                    print strftime(
-                        "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(
-                        sum(allTestsCurrentAvg) / len(allTestsCurrentAvg))
-                except:
-                    print "full test result printing error\n"
-                result.close()
+                worksheet[str(list(string.ascii_uppercase)[testList.index(testToRun) + 1]) + str(
+                    broList.index(browserToRun) + 2)] = sum(allTestsCurrentAvg) / len(allTestsCurrentAvg)
+                workbook.save(xlsxFilename)
             except:
-                print "battery_test_result.txt reading error\n"
+                print "full test result writing error\n"
+                logging.debug( u"full test result writing error")
+            try:
+                print strftime(
+                    "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(
+                    sum(allTestsCurrentAvg) / len(allTestsCurrentAvg))
+                logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass + " Current Avg: " + str(
+                    sum(allTestsCurrentAvg) / len(allTestsCurrentAvg)))
+            except:
+                print "full test result printing error\n"
+                logging.debug( u"full test result printing error")
+            result.close()
             time.sleep(5)
 
 
@@ -296,7 +291,7 @@ class Opera:
 class ColdStart:
     testClass = "ColdStart"
     measurementDuration = 30
-    runs = 10
+    runs = 30
     notFirstStart = ""
     forArgs = "Cs"
 
@@ -304,21 +299,21 @@ class ColdStart:
 class Foreground:
     testClass = "Foreground"
     measurementDuration = 500
-    runs = 1
+    runs = 3
     forArgs = "Fg"
 
 
 class Background:
     testClass = "Background"
     measurementDuration = 500
-    runs = 1
+    runs = 3
     forArgs = "Bg"
 
 
 class UlrOpen:
     testClass = "UrlOpen"
     measurementDuration = 30
-    runs = 10
+    runs = 30
     clearBrowser = ""
     forArgs = "Uo"
 
@@ -326,7 +321,7 @@ class UlrOpen:
 class TenSitesForeground:
     testClass = "TenSitesForeground"
     measurementDuration = 500
-    runs = 1
+    runs = 3
     clearBrowser = ""
     forArgs = "Tsf"
 
@@ -334,7 +329,7 @@ class TenSitesForeground:
 class TenSitesBackground:
     testClass = "TenSitesBackground"
     measurementDuration = 500
-    runs = 1
+    runs = 3
     clearBrowser = ""
     forArgs = "Tsb"
 
@@ -342,7 +337,7 @@ class TenSitesBackground:
 class VideoPlay:
     testClass = "VideoPlay"
     measurementDuration = 500
-    runs = 1
+    runs = 3
     enableRotation = ""
     forArgs = "Vp"
 
@@ -350,7 +345,7 @@ class VideoPlay:
 class Scroll:
     testClass = "Scroll"
     measurementDuration = 550
-    runs = 1
+    runs = 3
     clearBrowser = ""
     forArgs = "Sc"
 
@@ -358,7 +353,7 @@ class Scroll:
 class MusicPlay:
     testClass = "MusicPlay"
     measurementDuration = 550
-    runs = 1
+    runs = 3
     clearBrowser = ""
     forArgs = "Mp"
 
@@ -366,14 +361,14 @@ class MusicPlay:
 class HundredSitesForeground:
     testClass = "HundredSitesForeground"
     measurementDuration = 500
-    runs = 1
+    runs = 3
     clearBrowser = ""
     forArgs = "Hsf"
 
+logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = u'uiautomator.log')
 
-homeDir =  os.getcwd()
+homeDir = os.getcwd()
 xlsxFilename = homeDir + "/" + YandexBrowser.browserName + ".xlsx"
-txtFilename = homeDir + "/" + YandexBrowser.browserName + ".txt"
 if not os.path.isfile(xlsxFilename):
     workbookTmp = Workbook()
     workbookTmp.save(xlsxFilename)
