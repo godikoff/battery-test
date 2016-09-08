@@ -389,7 +389,7 @@ testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenS
 bNumber = 1
 for browserToChoose in broList:
     worksheet["A" + str(broList.index(browserToChoose) + 2)] = browserToChoose.browserName
-    logging.debug( u"" + browserToChoose.browserNam)
+    logging.debug( u"" + browserToChoose.browserName)
     worksheet.column_dimensions["A"].width = max(len(x.browserName) for x in broList)
     worksheet["A" + str(broList.index(browserToChoose) + 2)].alignment = alignment
     bNumber = bNumber + 1
