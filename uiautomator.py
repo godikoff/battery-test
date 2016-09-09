@@ -313,14 +313,16 @@ class ColdStart:
 class Foreground:
     testClass = "Foreground"
     measurementDuration = 500
-    runs = 3
+    runs = 1
+    clearBrowser = ""
     forArgs = "Fg"
 
 
 class Background:
     testClass = "Background"
     measurementDuration = 500
-    runs = 3
+    runs = 1
+    clearBrowser = ""
     forArgs = "Bg"
 
 
@@ -335,7 +337,7 @@ class UlrOpen:
 class TenSitesForeground:
     testClass = "TenSitesForeground"
     measurementDuration = 500
-    runs = 3
+    runs = 1
     clearBrowser = ""
     forArgs = "Tsf"
 
@@ -343,7 +345,7 @@ class TenSitesForeground:
 class TenSitesBackground:
     testClass = "TenSitesBackground"
     measurementDuration = 500
-    runs = 3
+    runs = 1
     clearBrowser = ""
     forArgs = "Tsb"
 
@@ -351,7 +353,8 @@ class TenSitesBackground:
 class VideoPlay:
     testClass = "VideoPlay"
     measurementDuration = 500
-    runs = 3
+    runs = 1
+    clearBrowser = ""
     enableRotation = ""
     forArgs = "Vp"
 
@@ -359,7 +362,7 @@ class VideoPlay:
 class Scroll:
     testClass = "Scroll"
     measurementDuration = 550
-    runs = 3
+    runs = 1
     clearBrowser = ""
     forArgs = "Sc"
 
@@ -367,7 +370,7 @@ class Scroll:
 class MusicPlay:
     testClass = "MusicPlay"
     measurementDuration = 550
-    runs = 3
+    runs = 1
     clearBrowser = ""
     forArgs = "Mp"
 
@@ -375,7 +378,7 @@ class MusicPlay:
 class HundredSitesForeground:
     testClass = "HundredSitesForeground"
     measurementDuration = 500
-    runs = 3
+    runs = 1
     clearBrowser = ""
     forArgs = "Hsf"
 
@@ -404,7 +407,7 @@ else:
 
 logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = u'uiautomator.log')
 
-allTestsDir = strftime("%y.%m.%d %H-%M-%S")
+allTestsDir = strftime("%y.%m.%d" + YandexBrowser.browserName)
 os.mkdir(allTestsDir)
 homeDir =  os.getcwd()
 xlsxFilename = homeDir + "/" + allTestsDir + "/" + "result_table.xlsx"
