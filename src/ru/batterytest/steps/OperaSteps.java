@@ -181,7 +181,7 @@ public class OperaSteps extends UiAutomatorTestCase {
     }
 
     public void waitForWebView() {
-        long endTime = System.currentTimeMillis()+15000;
+        long endTime = System.currentTimeMillis()+30000;
         UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
         while (!webView.exists() && System.currentTimeMillis() < endTime){
         }

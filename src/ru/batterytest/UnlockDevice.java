@@ -15,7 +15,7 @@ public class UnlockDevice extends UiAutomatorTestCase {
         int screenWidth = (int) UiDevice.getInstance().getDisplayWidth();
 
         YaBroSteps step = new YaBroSteps();
-        UiObject yandexBrowser = new UiObject(new UiSelector().text("ίνδεκρ\n" + "Απΰσηεπ"));
+        UiObject yandexBrowser = new UiObject(new UiSelector().text("Π―Π½Π΄ΠµΠΊΡ\n" + "Π‘Ρ€Π°ΡƒΠ·ΠµΡ€"));
         if (!yandexBrowser.exists())
             UiDevice.getInstance().swipe(screenWidth / 2, screenHeight - (screenHeight / 7), screenWidth / 2, screenHeight - (screenHeight - (screenHeight / 7)), 20);
         sleep(5000);
