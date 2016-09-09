@@ -407,7 +407,7 @@ else:
 
 logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = u'uiautomator.log')
 
-allTestsDir = strftime("%y.%m.%d" + YandexBrowser.browserName)
+allTestsDir = strftime("%y.%m.%d " + YandexBrowser.browserName)
 os.mkdir(allTestsDir)
 homeDir =  os.getcwd()
 xlsxFilename = homeDir + "/" + allTestsDir + "/" + "result_table.xlsx"

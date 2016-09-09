@@ -125,8 +125,8 @@
       <file leaf-file-name="uiautomator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uiautomator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2195653">
-              <caret line="315" column="12" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.25869566">
+              <caret line="410" column="21" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -1260,8 +1260,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uiautomator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2195653">
-          <caret line="315" column="12" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.25869566">
+          <caret line="410" column="21" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="21" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
