@@ -17,7 +17,7 @@ from openpyxl.styles import Alignment
 # 1. Create new <test class> and in case of new testclesses in .jar. And add it to <testList>
 # 2. Create new <browser class> in case of new browsers to test. And add it to <broList>
 
-voltage = "4.2"
+voltage = "3.8"
 
 
 def RunMonitor(measurementDuration):
