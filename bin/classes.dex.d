@@ -1,4 +1,5 @@
 C:\appium\battery-test\bin\classes.dex : \
+C:\appium\battery-test\bin\classes\ru\batterytest\atest.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Foreground.class \

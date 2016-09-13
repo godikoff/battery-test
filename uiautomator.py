@@ -383,7 +383,7 @@ class HundredSitesForeground:
     forArgs = "Hsf"
 
 
-broList = [YandexBrowser, Chrome, Opera]
+broList = [YandexBrowser, Chrome]
 testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenSitesBackground, VideoPlay, Scroll,
             MusicPlay, HundredSitesForeground]
 

@@ -2,21 +2,20 @@ package ru.batterytest.steps;
 
 import android.os.RemoteException;
 import android.util.Log;
-import com.android.uiautomator.core.UiDevice;
-import com.android.uiautomator.core.UiObject;
-import com.android.uiautomator.core.UiObjectNotFoundException;
-import com.android.uiautomator.core.UiSelector;
+import com.android.uiautomator.core.*;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 public class ChromeSteps extends UiAutomatorTestCase {
 
     public void precondition() throws RemoteException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiDevice.getInstance().pressHome();
         UiDevice.getInstance().setOrientationNatural();
     }
 
     //start Chrome from homescreen
     public void browserStart(int s) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject chromeBrowser = new UiObject(new UiSelector().text("Chrome"));
         if (chromeBrowser.exists())
             chromeBrowser.click();
@@ -44,6 +43,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
 
     //menu in omni tap
     public void menuButtonTap() throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject menuButton = new UiObject(new UiSelector().resourceId("com.android.chrome:id/menu_button"));
         if (menuButton.exists()) {
             menuButton.click();
@@ -55,6 +55,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
 
     //omnibox tap
     public void omniboxTap() throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject omnibox = new UiObject(new UiSelector().resourceId("com.android.chrome:id/search_box"));
         if (omnibox.exists()) {
             omnibox.click();
@@ -66,6 +67,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
 
     //omnibox in tab tap
     public void omniboxInTabTap() throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject omnibox = new UiObject(new UiSelector().resourceId("com.android.chrome:id/url_bar"));
         if (omnibox.exists()) {
             omnibox.click();
@@ -77,6 +79,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
 
     //omnibox text input
     public void omniboxInput(String url) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.android.chrome:id/url_bar"));
         if (omniboxTextField.exists()) {
             omniboxTextField.setText(url);
@@ -88,6 +91,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
 
     //tap on "new tab" button
     public void menuNewTabButtonTap() throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject menuNewTab = new UiObject(new UiSelector().resourceId("com.android.chrome:id/menu_item_text").description("Новая вкладка"));
         if (menuNewTab.exists()) {
             menuNewTab.click();
@@ -99,6 +103,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
 
     //open url in new tab
     public void openUrlInNewTab(String url) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         menuButtonTap();
         menuNewTabButtonTap();
         omniboxTap();
@@ -109,6 +114,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
 
     //open url first tab
     public void operUrlFirstTab(String url) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         omniboxTap();
         omniboxInput(url);
         UiDevice.getInstance().pressEnter();
@@ -117,6 +123,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
 
     //open url in current tab on tab
     public void openUrlInCurrentTab(String url) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         omniboxInTabTap();
         omniboxInput(url);
         UiDevice.getInstance().pressEnter();
@@ -124,6 +131,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
     }
 
     public void scrollDown(int count) throws Exception {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         int screenHeight = UiDevice.getInstance().getDisplayHeight();
         int screenWidth = UiDevice.getInstance().getDisplayWidth();
         waitForWebView();
@@ -133,6 +141,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
     }
 
     public void scrollUp(int count) throws Exception {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         int screenHeight = UiDevice.getInstance().getDisplayHeight();
         int screenWidth = UiDevice.getInstance().getDisplayWidth();
         waitForWebView();
@@ -142,6 +151,7 @@ public class ChromeSteps extends UiAutomatorTestCase {
     }
 
     public void vkLogin() throws Exception{
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject loginView = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
         UiObject passwordView = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
         loginView.getChild(new UiSelector().className("android.widget.EditText")).setText("yabrotest@gmail.com");
@@ -151,12 +161,14 @@ public class ChromeSteps extends UiAutomatorTestCase {
     }
 
     public void vkMusicStart() throws Exception{
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
         webView.getChild(new UiSelector().description("Scorpions – Humanity")).click();
         waitForWebView();
     }
 
     public void youtubeVideoPlayFullscreen() throws Exception{
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject playButton = new UiObject(new UiSelector().className("android.widget.Button").description("Смотреть"));
         playButton.click();
         sleep(2000);

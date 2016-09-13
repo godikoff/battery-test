@@ -6,11 +6,15 @@ import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
+import com.android.uiautomator.core.Configurator;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+
+import java.util.regex.Pattern;
 
 public class YaBroSteps extends UiAutomatorTestCase {
 
     public void precondition() throws RemoteException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiDevice.getInstance().pressHome();
         UiDevice.getInstance().setOrientationNatural();
     }
@@ -18,6 +22,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
     //menu in omni tap
     public void menuButtonTap() throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject menuButton = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_omnibar_address_button_menu"));
         if (menuButton.exists()) {
             menuButton.click();
@@ -29,7 +34,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
     //Yabro start (time for sleep after start)
     public void browserStart(int s) throws UiObjectNotFoundException {
-
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject yandexBrowser = new UiObject(new UiSelector().text("Яндекс\n" + "Браузер"));
         if (yandexBrowser.exists())
             yandexBrowser.click();
@@ -49,6 +54,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
     //omnibox tap
     public void omniboxTap() throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject omnibox = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_sentry_bar_fake_text"));
         if (omnibox.exists()) {
             omnibox.click();
@@ -60,6 +66,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
     //omnibox in tab tap
     public void omniboxInTabTap() throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject omnibox = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_omnibar_address_title_text"));
         if (omnibox.exists()) {
             omnibox.click();
@@ -71,6 +78,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
     //omnibox text input
     public void omniboxInput(String url) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_sentry_bar_input_edittext"));
         if (omniboxTextField.exists()) {
             omniboxTextField.setText(url);
@@ -82,6 +90,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
     //tap on "+" button
     public void menuNewTabButtonTap() throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject menuNewTab = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_menu_item_new_tab"));
         if (menuNewTab.exists()) {
             menuNewTab.click();
@@ -92,6 +101,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
     }
 
     public void openUrlInCurrentTab(String url) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         omniboxInTabTap();
         omniboxInput(url);
         UiDevice.getInstance().pressEnter();
@@ -100,6 +110,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
     //open url in new tab
     public void openUrlInNewTab(String url) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         menuButtonTap();
         menuNewTabButtonTap();
         omniboxTap();
@@ -110,6 +121,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
     //open url from Sentry
     public void openUrlFirstTab(String url) throws UiObjectNotFoundException {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         omniboxTap();
         omniboxInput(url);
         UiDevice.getInstance().pressEnter();
@@ -118,6 +130,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
 
 
     public void scrollDown(int count) throws Exception {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         int screenHeight = UiDevice.getInstance().getDisplayHeight();
         int screenWidth = UiDevice.getInstance().getDisplayWidth();
         waitForWebView();
@@ -127,6 +140,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
     }
 
     public void scrollUp(int count) throws Exception {
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         int screenHeight = UiDevice.getInstance().getDisplayHeight();
         int screenWidth = UiDevice.getInstance().getDisplayWidth();
         waitForWebView();
@@ -136,6 +150,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
     }
 
     public void vkLogin() throws Exception{
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject rootLayout = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_root_layout"));
         UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
         int offset = rootLayout.getBounds().top - webView.getBounds().top;
@@ -152,6 +167,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
     }
 
     public void vkMusicStart() throws Exception{
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject rootLayout = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_root_layout"));
         UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
         int offset = rootLayout.getBounds().top - webView.getBounds().top;
@@ -161,6 +177,7 @@ public class YaBroSteps extends UiAutomatorTestCase {
     }
 
     public void youtubeVideoPlayFullscreen() throws Exception{
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
         UiObject rootLayout = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_root_layout"));
         UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
         int offset = rootLayout.getBounds().top - webView.getBounds().top;
@@ -177,6 +194,17 @@ public class YaBroSteps extends UiAutomatorTestCase {
     public void logStart() throws Exception {
         Log.i("power measurement", "start measurement");
         sleep(1000);
+        /* Experiment for synchronization device log and power data
+        long time = System.currentTimeMillis();
+        long endTime = time+5000;
+        Log.i("power measurement", "start garbage");
+        while(System.currentTimeMillis() < endTime) {
+            Pattern p = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b");
+        }
+        Log.i("power measurement", "stop garbage");
+        Log.i("power measurement", "control message");
+        sleep(1000);
+        */
     }
 
     public void logFail(UiObject elementToCheck) {
