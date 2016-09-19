@@ -8,7 +8,6 @@ public class ColdStart extends UiAutomatorTestCase {
     public void test() throws Exception {
         ChromeObjects object = new ChromeObjects();
         BrowserSteps step = new BrowserSteps();
-        step.precondition(getParams().getString("browser"));
         sleep(5000);
         step.logStart();
         step.clickOn(object.browserHomescreenIcon);
