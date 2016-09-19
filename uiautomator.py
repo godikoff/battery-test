@@ -194,7 +194,7 @@ def RunTests(broList, browser, testList, test):
                 os.system("adb devices")
                 os.system("adb logcat -c")
                 os.system(
-                    "start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + "." + testToRun.testClass + "-e browser " + browserToRun.testBrowser + " --nohup")
+                    "start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + "." + testToRun.testClass + " -e browser " + browserToRun.testBrowser + " --nohup")
                 LogReader(str(testToRun.measurementDuration))
                 time.sleep(3)
                 findFailInLog = LogFailFinder()
