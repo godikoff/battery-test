@@ -1,21 +1,20 @@
 package ru.batterytest.chrome;
 
 
-import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import ru.batterytest.steps.ChromeSteps;
+import ru.batterytest.steps.BrowserSteps;
+import ru.batterytest.steps.ChromeObjects;
 
 public class UrlOpen extends UiAutomatorTestCase {
     public void test() throws Exception {
-        ChromeSteps step = new ChromeSteps();
-        step.precondition();
-        step.browserStart(60000);
-        step.omniboxTap();
-        step.omniboxInput("www.bash.im");
+        BrowserSteps step = new BrowserSteps();
+        ChromeObjects objects = new ChromeObjects();
+        step.precondition(getParams().getString("browser"));
+        step.clickOn(objects.omnibox);
+        step.inputText(objects.omniboxTextField, "www.bash.im");
         sleep(10000);
         step.logStart();
-        UiDevice.getInstance().pressEnter();
-        step.waitForWebView();
+        step.pressEnter();
         step.logPass();
     }
 }

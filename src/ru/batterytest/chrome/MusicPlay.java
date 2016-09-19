@@ -1,21 +1,28 @@
 package ru.batterytest.chrome;
 
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import ru.batterytest.steps.ChromeSteps;
+import ru.batterytest.steps.BrowserSteps;
+import ru.batterytest.steps.ChromeObjects;
 
 public class MusicPlay extends UiAutomatorTestCase {
     public void test() throws Exception {
-        ChromeSteps step = new ChromeSteps();
-        step.precondition();
-        step.browserStart(60000);
-        step.operUrlFirstTab("https://m.vk.com");
-        sleep(10000);
-        step.vkLogin();
-        sleep(10000);
-        step.openUrlInCurrentTab("https://m.vk.com/audio");
-        sleep(20000);
-        step.vkMusicStart();
+        BrowserSteps step = new BrowserSteps();
+        ChromeObjects objects = new ChromeObjects();
+        step.precondition(getParams().getString("browser"));
+        step.clickOn(objects.omnibox);
+        step.inputText(objects.omniboxTextField, "https://m.vk.com");
+        step.pressEnter();
+        step.clickOn(objects.loginTextField);
+        step.inputText(objects.loginTextField, "yabrotest@gmail.com");
+        step.clickOn(objects.passwordTextField);
+        step.inputText(objects.passwordTextField, "yabrotest123");
+        step.pressEnter();
+        step.clickOn(objects.omniboxInTab);
+        step.inputText(objects.omniboxTextField, "https://m.vk.com/audio");
+        step.pressEnter();
+        step.clickOn(objects.firstSong);
         step.logStart();
+        step.shouldBe(objects.webView);
         step.logPass();
     }
 }

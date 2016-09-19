@@ -1,4 +1,5 @@
 C:\appium\battery-test\bin\classes.dex : \
+C:\appium\battery-test\bin\classes\ru\batterytest\atest.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\Foreground.class \
@@ -20,9 +21,12 @@ C:\appium\battery-test\bin\classes\ru\batterytest\opera\TenSitesBackground.class
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\TenSitesForeground.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\UrlOpen.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\VideoPlay.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\steps\ChromeSteps.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\steps\aYabroObjects.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\steps\BrowserFirstStart.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\steps\BrowserSteps.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\steps\ChromeObjects.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\OperaSteps.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\steps\YaBroSteps.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\steps\YabroObjects.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\UnlockDevice.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\ColdStart.class \

@@ -32,7 +32,7 @@ def RunMonitor(measurementDuration):
     logging.debug( u"stop measurement")
 
 
-def getBroVersion(packageName):
+def getNames(*arg):
     class AsynchronousFileReader(threading.Thread):
         def __init__(self, fd, queue):
             assert isinstance(queue, Queue.Queue)
@@ -51,12 +51,19 @@ def getBroVersion(packageName):
         def stop(self):
             self._stop.set()
 
-    process = subprocess.Popen(["adb", "shell", "dumpsys", "package", packageName, "|", "grep", "versionName"],
-                               stdout=subprocess.PIPE)
+    if (arg[0] == "browser"):
+        commandString = ["adb", "shell", "dumpsys", "package", arg[1], "|", "grep", "versionName"]
+        numberInOut = 1
+    elif (arg[0] == "device"):
+        commandString = ["adb", "shell", "getprop", "ro.product.model"]
+        numberInOut = 0
+
+    process = subprocess.Popen(commandString,
+                                   stdout=subprocess.PIPE)
     stdout_queue = Queue.Queue()
     stdout_reader = AsynchronousFileReader(process.stdout, stdout_queue)
     stdout_reader.start()
-    yaBroVersion = stdout_queue.get().split("=")[1].strip()
+    yaBroVersion = stdout_queue.get().split("=")[numberInOut].strip()
     return yaBroVersion
 
 
@@ -160,7 +167,7 @@ def RunTests(broList, browser, testList, test):
                 print "First start..."
                 logging.debug( u"First start...")
                 os.system(
-                    "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + ".ColdStart")
+                    "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.steps.BrowserFirstStart" + " -e browser " + browserToRun.testBrowser)
                 print "...please wait..."
                 logging.debug( u"...please wait...")
                 time.sleep(80)
@@ -187,7 +194,7 @@ def RunTests(broList, browser, testList, test):
                 os.system("adb devices")
                 os.system("adb logcat -c")
                 os.system(
-                    "start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + "." + testToRun.testClass + " --nohup")
+                    "start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest." + browserToRun.testBrowser + "." + testToRun.testClass + "-e browser " + browserToRun.testBrowser + " --nohup")
                 LogReader(str(testToRun.measurementDuration))
                 time.sleep(3)
                 findFailInLog = LogFailFinder()
@@ -283,21 +290,21 @@ test = []
 
 class YandexBrowser:
     package = "com.yandex.browser"
-    browserName = "Yandex Browser " + getBroVersion(package)
+    browserName = "Yandex Browser " + getNames("browser", package)
     testBrowser = "yabro"
     forArgs = "Y"
 
 
 class Chrome:
     package = "com.android.chrome"
-    browserName = "Chrome " + getBroVersion(package)
+    browserName = "Chrome " + getNames("browser", package)
     testBrowser = "chrome"
     forArgs = "C"
 
 
 class Opera:
     package = "com.opera.browser"
-    browserName = "Opera " + getBroVersion(package)
+    browserName = "Opera " + getNames("browser", package)
     testBrowser = "opera"
     forArgs = "O"
 
@@ -395,7 +402,7 @@ if (len(sys.argv)) == 3:
         if i.forArgs in sys.argv[2]:
             test.append(i)
 else:
-    print "Usage:\n  asd.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
+    print "Usage:\n  uiautomator.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
     print "Browser list:"
     for browser in broList:
         print browser.forArgs + " - " + browser.browserName
@@ -407,7 +414,7 @@ else:
 
 logging.basicConfig(format = u'%(levelname)-8s [%(asctime)s] %(message)s', level = logging.DEBUG, filename = u'uiautomator.log')
 
-allTestsDir = YandexBrowser.browserName
+allTestsDir = getNames("device") + " " + YandexBrowser.browserName
 if not os.path.isdir(allTestsDir):
     os.mkdir(allTestsDir)
 homeDir =  os.getcwd()

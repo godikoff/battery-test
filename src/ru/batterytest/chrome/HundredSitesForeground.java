@@ -2,7 +2,6 @@ package ru.batterytest.chrome;
 
 
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import ru.batterytest.steps.ChromeSteps;
 
 import java.io.IOException;
 
@@ -26,7 +25,7 @@ public class HundredSitesForeground extends UiAutomatorTestCase {
     }
 
     public void test() throws Exception {
-        ChromeSteps step = new ChromeSteps();
+        /*BrowserSteps step = new BrowserSteps();
         step.precondition();
         step.browserStart(6000);
         for (int i=0;i<100;i++) {
@@ -35,6 +34,6 @@ public class HundredSitesForeground extends UiAutomatorTestCase {
         sleep(40000);
         step.waitForWebView();
         step.logStart();
-        step.logPass();
+        step.logPass();*/
     }
 }

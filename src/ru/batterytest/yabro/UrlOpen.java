@@ -3,19 +3,20 @@ package ru.batterytest.yabro;
 
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import ru.batterytest.steps.YaBroSteps;
+import ru.batterytest.steps.BrowserSteps;
+import ru.batterytest.steps.YabroObjects;
 
 public class UrlOpen extends UiAutomatorTestCase {
+
     public void test() throws Exception {
-        YaBroSteps step = new YaBroSteps();
-        step.precondition();
-        step.browserStart(60000);
-        step.omniboxTap();
-        step.omniboxInput("www.bash.im");
+        BrowserSteps step = new BrowserSteps();
+        YabroObjects objects = new YabroObjects();
+        step.precondition(getParams().getString("browser"));
+        step.clickOn(objects.omnibox);
+        step.inputText(objects.omniboxTextField, "www.bash.im");
         sleep(10000);
         step.logStart();
-        UiDevice.getInstance().pressEnter();
-        step.waitForWebView();
+        step.pressEnter();
         step.logPass();
     }
 }

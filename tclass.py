@@ -18,10 +18,13 @@ from openpyxl.styles import Alignment
 
 if os.path.isfile("build.xml"):
     os.remove("build.xml")
+os.system("android.bat create uitest-project -n battery-test -t 2 -p C:/appium/battery-test")
+
 if os.path.isdir("bin"):
     shutil.rmtree("bin")
-os.system("android.bat create uitest-project -n battery-test -t 2 -p C:/appium/battery-test")
 os.system("ant build")
 
+#os.system("adb shell pm clear com.yandex.browser")
+#os.system("adb shell pm clear com.android.chrome")
 #os.system("adb push bin/battery-test.jar /data/local/tmp/")
-#os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.atest --nohup")
+#os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.yabro.VideoPlay -e browser yabro")

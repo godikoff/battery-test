@@ -2,7 +2,8 @@ package ru.batterytest.yabro;
 
 
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import ru.batterytest.steps.YaBroSteps;
+import ru.batterytest.steps.BrowserSteps;
+import ru.batterytest.steps.YabroObjects;
 
 import java.io.IOException;
 
@@ -26,14 +27,15 @@ public class HundredSitesForeground extends UiAutomatorTestCase {
     }
 
     public void test() throws Exception {
-        YaBroSteps step = new YaBroSteps();
-        step.precondition();
-        step.browserStart(6000);
+        BrowserSteps step = new BrowserSteps();
+        YabroObjects object = new YabroObjects();
+        step.precondition(getParams().getString("browser"));
+        //step.browserStart(6000);
         for (int i=0;i<100;i++) {
             openTab();
         }
         sleep(40000);
-        step.waitForWebView();
+        step.shouldBe(object.webView);
         step.logStart();
         step.logPass();
     }

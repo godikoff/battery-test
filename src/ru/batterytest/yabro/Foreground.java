@@ -1,15 +1,13 @@
 package ru.batterytest.yabro;
 
+import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
-import ru.batterytest.steps.YaBroSteps;
+import ru.batterytest.steps.BrowserSteps;
 
 public class Foreground extends UiAutomatorTestCase {
-    public void tests() throws Exception {
-        YaBroSteps step = new YaBroSteps();
-        step.precondition();
-        sleep(2000);
-        step.browserStart(3000);
-        sleep(30000);
+    public void test() throws Exception {
+        BrowserSteps step = new BrowserSteps();
+        step.precondition(getParams().getString("browser"));
         step.logStart();
         step.logPass();
     }
