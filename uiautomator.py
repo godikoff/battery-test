@@ -17,7 +17,7 @@ from openpyxl.styles import Alignment
 # 1. Create new <test class> and in case of new testclesses in .jar. And add it to <testList>
 # 2. Create new <browser class> in case of new browsers to test. And add it to <broList>
 
-voltage = "3.8"
+voltage = "3.7"
 
 
 def RunMonitor(measurementDuration):
@@ -131,7 +131,7 @@ def LogFailFinder():
             line = stdout_queue.get()
             if "battery test failed" in line:
                 return line
-            elif "battery test passed" in line:
+            else:
                 return "passed"
 
 
@@ -150,6 +150,8 @@ def RunTests(broList, browser, testList, test):
             time.sleep(60)
             os.system(
                 "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.UnlockDevice")
+            print "...please wait..."
+            logging.debug( u"...please wait...")
             time.sleep(300)
 
             testNumber = 1
@@ -198,7 +200,22 @@ def RunTests(broList, browser, testList, test):
                 LogReader(str(testToRun.measurementDuration))
                 time.sleep(3)
                 findFailInLog = LogFailFinder()
-                if findFailInLog == "passed":
+                if "failed" in findFailInLog:
+                    retryCount = retryCount + 1
+                    try:
+                        print strftime(
+                            "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
+                            testNumber) + ": failed! Count = " + str(
+                            retryCount) + "\n" + findFailInLog.strip() + "\n"
+                        logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass + " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip())
+                    except:
+                        print "fail result printing error\n"
+                        logging.debug( u"fail result printing error")
+                    if retryCount == 2:
+                        testNumber = testNumber + 1
+                        retryCount = 0
+                        continue
+                else:
                     try:
                         with open('battery_test.csv') as csvfile:
                             testResults = csv.DictReader(csvfile)
@@ -229,24 +246,8 @@ def RunTests(broList, browser, testList, test):
                     shutil.copyfile('battery_test.csv', allTestsDir + "/" + browserToRun.browserName + "/" + testToRun.testClass + "/" + testToRun.testClass + "_" + str(testNumber) + "_data.csv")
                     os.system('adb logcat -d > ' + '"' + allTestsDir + '/' + browserToRun.browserName + '/' + testToRun.testClass + '/' + testToRun.testClass + '_' + str(testNumber) + '_log.txt"')
 
-
                     testNumber = testNumber + 1
                     allTestsCurrentAvg.append(sum(currentList) / len(currentList))
-                else:
-                    retryCount = retryCount + 1
-                    try:
-                        print strftime(
-                            "%m-%d %H:%M:%S") + " " + browserToRun.browserName + " " + testToRun.testClass + " " + str(
-                            testNumber) + ": failed! Count = " + str(
-                            retryCount) + "\n" + findFailInLog.strip() + "\n"
-                        logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass + " " + str(testNumber) + ": failed! Count = " + str(retryCount) + "\n" + findFailInLog.strip())
-                    except:
-                        print "fail result printing error\n"
-                        logging.debug( u"fail result printing error")
-                    if retryCount == 2:
-                        testNumber = testNumber + 1
-                        retryCount = 0
-                        continue
 
                 time.sleep(5)
 
@@ -302,17 +303,17 @@ class Chrome:
     forArgs = "C"
 
 
-class Opera:
-    package = "com.opera.browser"
-    browserName = "Opera " + getNames("browser", package)
-    testBrowser = "opera"
-    forArgs = "O"
+#class Opera:
+#    package = "com.opera.browser"
+#    browserName = "Opera " + getNames("browser", package)
+#    testBrowser = "opera"
+#    forArgs = "O"
 
 
 class ColdStart:
     testClass = "ColdStart"
     measurementDuration = 30
-    runs = 30
+    runs = 3
     notFirstStart = ""
     forArgs = "Cs"
 
