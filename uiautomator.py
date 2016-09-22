@@ -313,7 +313,7 @@ class Chrome:
 class ColdStart:
     testClass = "ColdStart"
     measurementDuration = 30
-    runs = 3
+    runs = 20
     notFirstStart = ""
     forArgs = "Cs"
 
@@ -337,7 +337,7 @@ class Background:
 class UlrOpen:
     testClass = "UrlOpen"
     measurementDuration = 30
-    runs = 30
+    runs = 20
     clearBrowser = ""
     forArgs = "Uo"
 
