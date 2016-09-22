@@ -19,10 +19,10 @@ public class BrowserSteps extends UiAutomatorTestCase {
         UiDevice.getInstance().pressHome();
         UiDevice.getInstance().setOrientationNatural();
         if (browserType.equals("yabro")) {
-            YabroStart(6);
+            YabroStart(60);
         }
         else if (browserType.equals("chrome")) {
-            ChromeStart(6);
+            ChromeStart(60);
         }
     }
 

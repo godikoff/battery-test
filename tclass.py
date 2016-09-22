@@ -24,7 +24,7 @@ if os.path.isdir("bin"):
     shutil.rmtree("bin")
 os.system("ant build")
 
-os.system("adb shell pm clear com.yandex.browser")
-os.system("adb shell pm clear com.android.chrome")
-os.system("adb push bin/battery-test.jar /data/local/tmp/")
-os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.yabro.VideoPlay -e browser yabro")
+#os.system("adb shell pm clear com.yandex.browser")
+#os.system("adb shell pm clear com.android.chrome")
+#os.system("adb push bin/battery-test.jar /data/local/tmp/")
+#os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.atest -e browser yabro")

@@ -13,13 +13,7 @@ import java.io.File;
 public class atest extends UiAutomatorTestCase{
 
     public void test() throws Exception {
-        final String dumpXml = "dump.xml";
-        final File dump = new File(new File(Environment.getDataDirectory(),
-                "local/tmp"), dumpXml);
-        dump.mkdirs();
-        if (dump.exists()) {
-            dump.delete();
-        }
-        UiDevice.getInstance().dumpWindowHierarchy(dumpXml);
+        BrowserSteps step = new BrowserSteps();
+        step.pressEnter();
     }
 }
