@@ -16,7 +16,7 @@ public class ChromeObjects extends UiAutomatorTestCase{
     public UiObject omniboxInTab = new UiObject(new UiSelector().resourceId("com.android.chrome:id/url_bar"));
     public UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.android.chrome:id/url_bar"));
     public UiObject menuNewTabButton = new UiObject(new UiSelector().resourceId("com.android.chrome:id/menu_item_text").description("Новая вкладка"));
-    public UiObject videoContainer = new UiObject(new UiSelector().resourceId("koya_elem_0_11"));
+    public UiObject videoContainer = new UiObject(new UiSelector().className("android.view.View").index(1).description("видео видео"));
     public UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
     public UiObject browserHomescreenIcon = new UiObject(new UiSelector().textMatches("Chrome"));
     public UiObject firstSong = new UiObject(new UiSelector().description("Scorpions – Humanity"));

@@ -16,7 +16,7 @@ public class VideoPlay extends UiAutomatorTestCase {
         step.clickOn(objects.playButton);
         sleep(30000);
         step.clickOn(objects.youtubeSkipAdButton);
-        step.clickOnLeftBottomOf(objects.videoContainer);
+        step.clickOnRightOf(objects.videoContainer);
         step.setOrientationLandscape();
         sleep(10000);
         step.logStart();

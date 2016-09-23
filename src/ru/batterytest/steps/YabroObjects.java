@@ -15,7 +15,7 @@ public class YabroObjects extends UiAutomatorTestCase{
     public UiObject omniboxInTab = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_omnibar_address_title_text"));
     public UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_sentry_bar_input_edittext"));
     public UiObject menuNewTabButton = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_menu_item_new_tab"));
-    public UiObject videoContainer = new UiObject(new UiSelector().resourceId("koya_elem_0_11"));
+    public UiObject videoContainer = new UiObject(new UiSelector().className("android.view.View").index(1).description("видео видео"));;
     public UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
     public UiObject browserHomescreenIcon = new UiObject(new UiSelector().textMatches("Яндекс(.*\\s?)Браузер"));
     public UiObject firstSong = new UiObject(new UiSelector().description("Scorpions – Humanity"));

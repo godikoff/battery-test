@@ -108,14 +108,14 @@ public class BrowserSteps extends UiAutomatorTestCase {
     }
 
 
-    public void clickOnLeftBottomOf(UiObject yabroObject) throws Exception{
+    public void clickOnRightOf(UiObject yabroObject) throws Exception{
         long time = System.currentTimeMillis();
         long endTime = time + 10000;
-        Log.i("power measurement", "Try to tap on left bottom of " + yabroObject.getSelector());
+        Log.i("power measurement", "Try to tap on right of " + yabroObject.getSelector());
         while (System.currentTimeMillis() < endTime) {
             if (yabroObject.exists()) {
-                Log.i("power measurement", "Tap on left bottom of " + yabroObject.getSelector());
-                UiDevice.getInstance().click((int) ((yabroObject.getBounds().right) * (90.0f / 100.0f)), (int) ((yabroObject.getBounds().bottom) * (90.0f / 100.0f)));
+                Log.i("power measurement", "Tap on right of " + yabroObject.getSelector());
+                UiDevice.getInstance().click((int) ((yabroObject.getBounds().right) * (90.0f / 100.0f)), (int) ((yabroObject.getBounds().centerY())));
                 return;
             }
             sleep(1000);
