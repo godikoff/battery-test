@@ -136,49 +136,54 @@ def LogFailFinder():
 
 
 def RunTests(broList, browser, testList, test):
-    print "rebooting device..."
-    logging.debug( u"rebooting device...")
-    os.system("adb reboot")
-    time.sleep(60)
-    os.system(
-        "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.UnlockDevice")
-    print "...please wait..."
-    logging.debug( u"...please wait...")
-    time.sleep(300)
-    print "control test"
-    logging.debug( u"control test")
-    os.system(
-        "start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.Control --nohup")
-    LogReader(str(540))
-    time.sleep(3)
-    try:
-        with open('battery_test.csv') as csvfile:
-            testResults = csv.DictReader(csvfile)
-            currentList = []
+    if (len(sys.argv)) == 3:
+        print "control test"
+        print "rebooting device..."
+        logging.debug( u"rebooting device...")
+        os.system("adb reboot")
+        time.sleep(60)
+        os.system(
+            "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.UnlockDevice")
+        print "...please wait..."
+        logging.debug( u"...please wait...")
+        time.sleep(300)
+        print "control test"
+        logging.debug( u"control test")
+        os.system(
+            "start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.Control --nohup")
+        LogReader(str(540))
+        time.sleep(3)
+        try:
+            with open('battery_test.csv') as csvfile:
+                testResults = csv.DictReader(csvfile)
+                currentList = []
 
-            for row in testResults:
-                current = row['Main Avg Power (mW)']
-                currentList.append(current)
+                for row in testResults:
+                    current = row['Main Avg Power (mW)']
+                    currentList.append(current)
 
-            currentList = map(int, currentList)
-            try:
-                print "\n" + strftime(
-                    "%m-%d %H:%M:%S") + " Control Test: " + str(sum(currentList) / len(currentList)) + "\n"
-                logging.debug( u"Control Test: : " + str(sum(currentList) / len(currentList)))
-            except:
-                print "Control Test result printing error"
-                logging.debug( u"Control Test result printing error")
-    except:
-        print "battery_test.csv reading error\n"
-        logging.debug( u"battery_test.csv reading error")
+                currentList = map(int, currentList)
+                try:
+                    print "\n" + strftime(
+                        "%m-%d %H:%M:%S") + " Control Test: " + str(sum(currentList) / len(currentList)) + "\n"
+                    logging.debug( u"Control Test: : " + str(sum(currentList) / len(currentList)))
+                except:
+                    print "Control Test result printing error"
+                    logging.debug( u"Control Test result printing error")
+        except:
+            print "battery_test.csv reading error\n"
+            logging.debug( u"battery_test.csv reading error")
 
-    try:
-        worksheet["A1"] = str(sum(currentList) / len(currentList))
-        workbook.save(xlsxFilename)
-    except:
-        print "full test result writing error\n"
-        logging.debug( u"full test result writing error")
-    time.sleep(5)
+        try:
+            worksheet["A1"] = str(sum(currentList) / len(currentList))
+            workbook.save(xlsxFilename)
+        except:
+            print "Control Test result writing error\n"
+            logging.debug( u"Control Test result writing error")
+        time.sleep(5)
+    elif "--no-control" in sys.argv[3]:
+        print "skipping Control Test"
+        logging.debug( u"skipping Control Test")
 
     for browserToRun in browser:
         print browserToRun.browserName  + " tests started"
@@ -438,7 +443,7 @@ broList = [YandexBrowser, Chrome]
 testList = [ColdStart, Foreground, Background, UlrOpen, TenSitesForeground, TenSitesBackground, VideoPlay, Scroll,
             MusicPlay, HundredSitesForeground]
 
-if (len(sys.argv)) == 3:
+if (len(sys.argv)) > 2:
     for i in broList:
         if i.forArgs in sys.argv[1]:
             bro.append(i)
@@ -446,13 +451,14 @@ if (len(sys.argv)) == 3:
         if i.forArgs in sys.argv[2]:
             test.append(i)
 else:
-    print "Usage:\n  uiautomator.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb\n"
+    print "Usage:\n  uiautomator.py <browsers> <tests>\nFor example:\n  asd.py YCO CsFgTsb --no-control\n"
     print "Browser list:"
     for browser in broList:
         print browser.forArgs + " - " + browser.browserName
     print "\nTest list:"
     for n in testList:
         print n.forArgs + " - " + n.testClass
+    print "--no-control - for no control measurement"
     sys.exit()
 
 
