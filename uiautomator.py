@@ -136,6 +136,50 @@ def LogFailFinder():
 
 
 def RunTests(broList, browser, testList, test):
+    print "rebooting device..."
+    logging.debug( u"rebooting device...")
+    os.system("adb reboot")
+    time.sleep(60)
+    os.system(
+        "adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.UnlockDevice")
+    print "...please wait..."
+    logging.debug( u"...please wait...")
+    time.sleep(300)
+    print "control test"
+    logging.debug( u"control test")
+    os.system(
+        "start adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.Control --nohup")
+    LogReader(str(540))
+    time.sleep(3)
+    try:
+        with open('battery_test.csv') as csvfile:
+            testResults = csv.DictReader(csvfile)
+            currentList = []
+
+            for row in testResults:
+                current = row['Main Avg Power (mW)']
+                currentList.append(current)
+
+            currentList = map(int, currentList)
+            try:
+                print "\n" + strftime(
+                    "%m-%d %H:%M:%S") + " Control Test: " + str(sum(currentList) / len(currentList)) + "\n"
+                logging.debug( u"Control Test: : " + str(sum(currentList) / len(currentList)))
+            except:
+                print "Control Test result printing error"
+                logging.debug( u"Control Test result printing error")
+    except:
+        print "battery_test.csv reading error\n"
+        logging.debug( u"battery_test.csv reading error")
+
+    try:
+        worksheet["A1"] = str(sum(currentList) / len(currentList))
+        workbook.save(xlsxFilename)
+    except:
+        print "full test result writing error\n"
+        logging.debug( u"full test result writing error")
+    time.sleep(5)
+
     for browserToRun in browser:
         print browserToRun.browserName  + " tests started"
         logging.debug( u"" + browserToRun.browserName  + " tests started")
@@ -145,7 +189,6 @@ def RunTests(broList, browser, testList, test):
             logging.debug( u"" + browserToRun.browserName + " " + testToRun.testClass  + " started")
             print "rebooting device..."
             logging.debug( u"rebooting device...")
-
             os.system("adb reboot")
             time.sleep(60)
             os.system(
