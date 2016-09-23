@@ -14,6 +14,9 @@ public class atest extends UiAutomatorTestCase{
 
     public void test() throws Exception {
         BrowserSteps step = new BrowserSteps();
-        step.pressEnter();
+        YabroObjects objects = new YabroObjects();
+        step.clickOn(objects.omniboxInTab);
+        UiDevice.getInstance().pressDelete();
+        step.inputText(objects.omniboxTextField, "https://m.vk.com/audio");
     }
 }

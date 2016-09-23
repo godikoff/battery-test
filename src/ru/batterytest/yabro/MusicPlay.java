@@ -19,6 +19,7 @@ public class MusicPlay extends UiAutomatorTestCase {
         step.inputText(objects.passwordTextField, "yabrotest123");
         step.pressEnter();
         step.clickOn(objects.omniboxInTab);
+        step.pressDelete();
         step.inputText(objects.omniboxTextField, "https://m.vk.com/audio");
         step.pressEnter();
         step.clickOn(objects.firstSong);

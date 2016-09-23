@@ -97,6 +97,11 @@ public class BrowserSteps extends UiAutomatorTestCase {
         UiDevice.getInstance().pressHome();
     }
 
+    public void pressDelete() {
+        Log.i("power measurement", "Press Delete");
+        UiDevice.getInstance().pressDelete();
+    }
+
     public void setOrientationLandscape() throws RemoteException {
         Log.i("power measurement", "Set orientation to Landscape");
         UiDevice.getInstance().setOrientationLeft();
