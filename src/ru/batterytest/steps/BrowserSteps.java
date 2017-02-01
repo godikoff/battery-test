@@ -3,10 +3,7 @@ package ru.batterytest.steps;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
-import com.android.uiautomator.core.UiDevice;
-import com.android.uiautomator.core.UiObject;
-import com.android.uiautomator.core.UiObjectNotFoundException;
-import com.android.uiautomator.core.UiSelector;
+import com.android.uiautomator.core.*;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 import java.util.regex.Pattern;
@@ -128,6 +125,31 @@ public class BrowserSteps extends UiAutomatorTestCase {
             }
             sleep(1000);
         }
+    }
+
+    public void ybroVkLogin() throws Exception{
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
+        UiObject rootLayout = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_root_layout"));
+        UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
+        int offset = rootLayout.getBounds().top - webView.getBounds().top;
+        UiObject loginView = new UiObject(new UiSelector().className("android.widget.ListView").index(0));
+        UiObject passwordView = new UiObject(new UiSelector().className("android.widget.ListView").index(1));
+        UiObject loginTextField = loginView.getChild(new UiSelector().className("android.widget.EditText"));
+        UiObject passwordTextField = passwordView.getChild(new UiSelector().className("android.widget.EditText"));
+        UiDevice.getInstance().click(loginTextField.getBounds().centerX(), loginTextField.getBounds().centerY()+offset);
+        sleep(3000);
+        loginTextField.setText("yabrotest@gmail.com");
+        passwordTextField.setText("yabrotest123");
+        UiDevice.getInstance().pressEnter();
+    }
+
+    public void ybroVkMusicStart() throws Exception{
+        Configurator.getInstance().setWaitForSelectorTimeout(10000);
+        UiObject rootLayout = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_root_layout"));
+        UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
+        int offset = rootLayout.getBounds().top - webView.getBounds().top;
+        UiObject firstSong = webView.getChild(new UiSelector().description("Skorpions – Humanity"));
+        UiDevice.getInstance().click(firstSong.getBounds().centerX(), firstSong.getBounds().centerY()+offset);
     }
 
     public void YabroStart(int s) throws UiObjectNotFoundException {

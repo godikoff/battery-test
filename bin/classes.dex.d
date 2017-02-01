@@ -24,7 +24,6 @@ C:\appium\battery-test\bin\classes\ru\batterytest\opera\TenSitesBackground.class
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\TenSitesForeground.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\UrlOpen.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\VideoPlay.class \
-C:\appium\battery-test\bin\classes\ru\batterytest\steps\aYabroObjects.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\BrowserFirstStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\BrowserSteps.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\ChromeObjects.class \

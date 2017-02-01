@@ -11,10 +11,10 @@ public class YabroObjects extends UiAutomatorTestCase{
 
     public UiObject tabMenuButton = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_omnibar_address_button_menu"));
     public UiObject sentryMenuButton = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_sentry_button_menu"));
-    public UiObject omnibox = new UiObject(new UiSelector().resourceId("com.yandex.browser.canary:id/bro_sentry_bar_fake_text"));
+    public UiObject omnibox = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_sentry_bar_fake_text"));
     public UiObject tuorialCloseButton = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/activity_tutorial_close_button"));
     public UiObject omniboxInTab = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_omnibar_address_title_text"));
-    public UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.yandex.browser.canary:id/bro_sentry_bar_input_edittext"));
+    public UiObject omniboxTextField = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_sentry_bar_input_edittext"));
     public UiObject menuNewTabButton = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_menu_item_new_tab"));
     public UiObject videoContainer = new UiObject(new UiSelector().className("android.view.View").index(1).description("видео видео"));;
     public UiObject webView = new UiObject(new UiSelector().className("android.webkit.WebView"));
@@ -30,5 +30,5 @@ public class YabroObjects extends UiAutomatorTestCase{
     public UiObject menuDeleteFromTabloButton = new UiObject(new UiSelector().description("descr_menu_tablo_del"));
     public UiObject menuSettingsButton = new UiObject(new UiSelector().text("Настройки"));
     public UiObject download100mb = new UiObject(new UiSelector().descriptionContains("100MB"));
-    public UiObject infobarAcceptButton = new UiObject(new UiSelector().resourceId("com.yandex.browser.canary:id/bro_infobar_button_accept"));
+    public UiObject infobarAcceptButton = new UiObject(new UiSelector().resourceId("com.yandex.browser:id/bro_infobar_button_accept"));
 }
