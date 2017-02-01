@@ -2,6 +2,9 @@ package ru.batterytest.chrome;
 
 
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+import ru.batterytest.steps.BrowserSteps;
+import ru.batterytest.steps.ChromeObjects;
+import ru.batterytest.steps.YabroObjects;
 
 import java.io.IOException;
 
@@ -25,15 +28,15 @@ public class HundredSitesForeground extends UiAutomatorTestCase {
     }
 
     public void test() throws Exception {
-        /*BrowserSteps step = new BrowserSteps();
-        step.precondition();
-        step.browserStart(6000);
+        BrowserSteps step = new BrowserSteps();
+        ChromeObjects object = new ChromeObjects();
+        step.precondition(getParams().getString("browser"));
         for (int i=0;i<100;i++) {
             openTab();
         }
         sleep(40000);
-        step.waitForWebView();
+        step.shouldBe(object.webView);
         step.logStart();
-        step.logPass();*/
+        step.logPass();
     }
 }

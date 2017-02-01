@@ -302,7 +302,7 @@ def RunTests(broList, browser, testList, test):
             if testToRun.runs > 9 and testNumber > 5:
                 for i in list(range(int(float(testToRun.runs)/10.0*2.5))):
                     allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
-                    allTestsCurrentAvg.remove(max(allTestsCurrentAvg))
+                    allTestsCurrentAvg.remove(min(allTestsCurrentAvg))
 
             if hasattr(testToRun, 'enableRotation'):
                 os.system(
@@ -437,6 +437,20 @@ class HundredSitesForeground:
     runs = 1
     clearBrowser = ""
     forArgs = "Hsf"
+
+class MetrikaLoggingOn:
+    testClass = "MetrikaLoggingOn"
+    measurementDuration = 170
+    runs = 1
+    clearBrowser = ""
+    forArgs = "MOn"
+
+class MetrikaLoggingOff:
+    testClass = "MetrikaLoggingOff"
+    measurementDuration = 170
+    runs = 1
+    clearBrowser = ""
+    forArgs = "MOf"
 
 
 broList = [YandexBrowser, Chrome]

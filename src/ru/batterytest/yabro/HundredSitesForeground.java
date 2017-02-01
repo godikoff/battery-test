@@ -30,7 +30,6 @@ public class HundredSitesForeground extends UiAutomatorTestCase {
         BrowserSteps step = new BrowserSteps();
         YabroObjects object = new YabroObjects();
         step.precondition(getParams().getString("browser"));
-        //step.browserStart(6000);
         for (int i=0;i<100;i++) {
             openTab();
         }

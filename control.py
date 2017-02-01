@@ -1,23 +1,13 @@
-import os, csv, sys, time, shutil, subprocess, threading, Queue, datetime
+import re
+from datetime import datetime
 
-os.system("adb shell pm clear com.yandex.browser")
-os.system("adb shell pm clear com.android.chrome")
-os.system("adb shell pm clear com.opera.browser")
-time.sleep(5)
 
-os.chdir("C:/Program Files (x86)/Monsoon Solutions Inc/Power Monitor")
-os.system("PowerToolCmd.exe -trigger=ETY100D500A -vout=4.2 -USB=auto -keeppower -savefile=battery_test.pt4 -noexitwait")
+with open("log.txt") as eventlog:
+    events = [datetime.strptime(l.split()[1], "%H:%M:%S.%f") for l in eventlog.readlines()]
 
-with open('battery_test.csv') as csvfile:
-    testResults = csv.DictReader(csvfile)
-    currentList = []
+with open("log.txt") as eventlog:
+    logmessages = [re.search('DownloadTracking: (.*)', l).group(1) for l in eventlog.readlines()]
+offsets = [(ev - events[0]).total_seconds()*1000 for ev in events]
 
-    for row in testResults:
-        current = row['Main Avg Power (mW)']
-        currentList.append(current)
-
-    currentList = map(int, currentList)
-    print "\nControl: " + str(sum(currentList)/len(currentList)) + "\n"
-    singleResult = open('battery_test_result.txt', 'a')
-    singleResult.write("Control: " + str(sum(currentList)/len(currentList)) + "\n")
-    singleResult.close()
+print logmessages
+print offsets

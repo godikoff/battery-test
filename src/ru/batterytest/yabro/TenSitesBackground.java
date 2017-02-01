@@ -1,7 +1,6 @@
 package ru.batterytest.yabro;
 
 
-import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import ru.batterytest.steps.BrowserSteps;
 import ru.batterytest.steps.YabroObjects;
@@ -27,7 +26,7 @@ public class TenSitesBackground extends UiAutomatorTestCase {
         step.pressEnter();
         sleep(10000);
         for (int i=0; i<9; i++){
-            step.clickOn(objects.menuButton);
+            step.clickOn(objects.tabMenuButton);
             step.clickOn(objects.menuNewTabButton);
             step.clickOn(objects.omnibox);
             step.inputText(objects.omniboxTextField, siteList[i]);

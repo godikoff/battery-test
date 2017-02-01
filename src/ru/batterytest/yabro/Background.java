@@ -1,6 +1,5 @@
 package ru.batterytest.yabro;
 
-import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 import ru.batterytest.steps.BrowserSteps;
 

@@ -11,6 +11,9 @@ C:\appium\battery-test\bin\classes\ru\batterytest\chrome\TenSitesForeground.clas
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\UrlOpen.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\chrome\VideoPlay.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\Control.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\download\mb100.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\MetrikaLoggingOff.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\MetrikaLoggingOn.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\ColdStart.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\opera\Foreground.class \
@@ -27,6 +30,8 @@ C:\appium\battery-test\bin\classes\ru\batterytest\steps\BrowserSteps.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\ChromeObjects.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\OperaSteps.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\steps\YabroObjects.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\TabloAddDeleteMetrikaOff.class \
+C:\appium\battery-test\bin\classes\ru\batterytest\TabloAddDeleteMetrikaOn.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\UnlockDevice.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\Background.class \
 C:\appium\battery-test\bin\classes\ru\batterytest\yabro\ColdStart.class \

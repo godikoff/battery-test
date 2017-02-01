@@ -1,12 +1,15 @@
 package ru.batterytest.steps;
 
 import android.os.RemoteException;
+import android.os.SystemClock;
 import android.util.Log;
 import com.android.uiautomator.core.UiDevice;
 import com.android.uiautomator.core.UiObject;
 import com.android.uiautomator.core.UiObjectNotFoundException;
 import com.android.uiautomator.core.UiSelector;
 import com.android.uiautomator.testrunner.UiAutomatorTestCase;
+
+import java.util.regex.Pattern;
 
 public class BrowserSteps extends UiAutomatorTestCase {
     YabroObjects yabroObjects = new YabroObjects();
@@ -29,7 +32,7 @@ public class BrowserSteps extends UiAutomatorTestCase {
 
     public void clickOn(UiObject yabroObject) throws UiObjectNotFoundException {
         long time = System.currentTimeMillis();
-        long endTime = time + 10000;
+        long endTime = time + 30000;
         Log.i("power measurement", "Try to tap on " + yabroObject.getSelector());
         while (System.currentTimeMillis() < endTime) {
             if (yabroObject.exists()) {
@@ -102,6 +105,11 @@ public class BrowserSteps extends UiAutomatorTestCase {
         UiDevice.getInstance().pressDelete();
     }
 
+    public void pressBack() {
+        Log.i("power measurement", "Press Back");
+        UiDevice.getInstance().pressBack();
+    }
+
     public void setOrientationLandscape() throws RemoteException {
         Log.i("power measurement", "Set orientation to Landscape");
         UiDevice.getInstance().setOrientationLeft();
@@ -141,19 +149,18 @@ public class BrowserSteps extends UiAutomatorTestCase {
 
     public void logStart() throws Exception {
         Log.i("power measurement", "start measurement");
+        //Log.i("power measurement", "start measurement");
         sleep(1000);
 
-        /* Experiment for synchronization device log and power data
+        /* Experiment for synchronization device log and power data */
         long time = System.currentTimeMillis();
         long endTime = time+5000;
         Log.i("power measurement", "start garbage");
         while(System.currentTimeMillis() < endTime) {
             Pattern p = Pattern.compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum)\b");
         }
-        Log.i("power measurement", "stop garbage");
-        Log.i("power measurement", "control message");
-        sleep(1000);
-        */
+        Log.i("cr_Ya:DownloadTracking", "synchronize " + SystemClock.elapsedRealtime());
+        sleep(5000);
     }
 
     public void logFail(UiObject elementToCheck) {

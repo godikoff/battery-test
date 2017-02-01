@@ -26,7 +26,7 @@ public class TenSitesForeground extends UiAutomatorTestCase {
         step.pressEnter();
         sleep(10000);
         for (int i=0; i<9; i++){
-            step.clickOn(objects.menuButton);
+            step.clickOn(objects.tabMenuButton);
             step.clickOn(objects.menuNewTabButton);
             step.clickOn(objects.omnibox);
             step.inputText(objects.omniboxTextField, siteList[i]);

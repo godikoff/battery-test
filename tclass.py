@@ -26,5 +26,5 @@ os.system("ant build")
 
 #os.system("adb shell pm clear com.yandex.browser")
 #os.system("adb shell pm clear com.android.chrome")
-#os.system("adb push bin/battery-test.jar /data/local/tmp/")
-#os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.atest -e browser chrome")
+os.system("adb push bin/battery-test.jar /data/local/tmp/")
+os.system("adb shell uiautomator runtest /data/local/tmp/battery-test.jar -c ru.batterytest.atest")
